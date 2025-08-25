@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chef Cards - Bootstrap 5</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            padding: 40px 0;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .chef-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            height: 420px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .chef-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 55px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .chef-image {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .chef-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .chef-card:hover .chef-image img {
+            transform: scale(1.05);
+        }
+
+        .chef-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff6b6b;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .chef-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.9),
+                    transparent);
+            padding: 30px 25px 25px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .chef-card:hover .chef-info {
+            transform: translateY(0);
+        }
+
+        .chef-name {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .chef-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .chef-rating span {
+            background: #27ae60;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .chef-rating i {
+            margin-right: 5px;
+            color: #ffd700;
+        }
+
+        .chef-exp {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .chef-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .chef-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .chef-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #3498db;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .chef-card {
+                height: 380px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .chef-info {
+                padding: 20px 15px 15px;
+            }
+
+            .chef-name {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Our Master Chefs</h1>
+            <p class="lead">
+                Discover our talented team of professional chefs. Hover over
+                a card to see their details and specialties.
+            </p>
+        </div>
+
+        <div class="row">
+            <!-- Chef 1 -->
+            <div class="col-md-4 col-lg-3">
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                            alt="Chef Manoj Sinha" />
+                        <div class="chef-badge">Available Today</div>
+                    </div>
+                    <div class="chef-info">
+                        <h3 class="chef-name">Manoj Sinha</h3>
+                        <div class="chef-rating">
+                            <span><i class="fas fa-star"></i> 4.9</span>
+                            <div>(128 reviews)</div>
+                        </div>
+                        <p class="chef-exp">8+ years experience</p>
+                        <div class="chef-tags">
+                            <span class="chef-tag">North Indian</span>
+                            <span class="chef-tag">South Indian</span>
+                            <span class="chef-tag">Italian</span>
+                        </div>
+                        <div class="chef-actions">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-calendar-check"></i> Book
+                                Now
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-user"></i> Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chef 2 -->
+            <div class="col-md-4 col-lg-3">
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                            alt="Chef Sushma Bansal" />
+                        <div class="chef-badge">Popular</div>
+                    </div>
+                    <div class="chef-info">
+                        <h3 class="chef-name">Sushma Bansal</h3>
+                        <div class="chef-rating">
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                            <div>(96 reviews)</div>
+                        </div>
+                        <p class="chef-exp">4+ years experience</p>
+                        <div class="chef-tags">
+                            <span class="chef-tag">North Indian</span>
+                            <span class="chef-tag">Italian</span>
+                            <span class="chef-tag">Baking</span>
+                        </div>
+                        <div class="chef-actions">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-calendar-check"></i> Book
+                                Now
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-user"></i> Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chef 3 -->
+            <div class="col-md-4 col-lg-3">
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1607631568261-37ce7a46c8f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                            alt="Chef Rajesh Kumar" />
+                        <div class="chef-badge">New</div>
+                    </div>
+                    <div class="chef-info">
+                        <h3 class="chef-name">Rajesh Kumar</h3>
+                        <div class="chef-rating">
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                            <div>(87 reviews)</div>
+                        </div>
+                        <p class="chef-exp">6+ years experience</p>
+                        <div class="chef-tags">
+                            <span class="chef-tag">Chinese</span>
+                            <span class="chef-tag">Thai</span>
+                            <span class="chef-tag">Asian Fusion</span>
+                        </div>
+                        <div class="chef-actions">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-calendar-check"></i> Book
+                                Now
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-user"></i> Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chef 4 -->
+            <div class="col-md-4 col-lg-3">
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                            alt="Chef Priya Sharma" />
+                        <div class="chef-badge">Top Rated</div>
+                    </div>
+                    <div class="chef-info">
+                        <h3 class="chef-name">Priya Sharma</h3>
+                        <div class="chef-rating">
+                            <span><i class="fas fa-star"></i> 4.9</span>
+                            <div>(64 reviews)</div>
+                        </div>
+                        <p class="chef-exp">3+ years experience</p>
+                        <div class="chef-tags">
+                            <span class="chef-tag">Mexican</span>
+                            <span class="chef-tag">Spanish</span>
+                            <span class="chef-tag">Fusion</span>
+                        </div>
+                        <div class="chef-actions">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-calendar-check"></i> Book
+                                Now
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-user"></i> Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chef 5 -->
+            <div class="col-md-4 col-lg-3">
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                            alt="Chef Amit Patel" />
+                    </div>
+                    <div class="chef-info">
+                        <h3 class="chef-name">Amit Patel</h3>
+                        <div class="chef-rating">
+                            <span><i class="fas fa-star"></i> 4.6</span>
+                            <div>(112 reviews)</div>
+                        </div>
+                        <p class="chef-exp">7+ years experience</p>
+                        <div class="chef-tags">
+                            <span class="chef-tag">BBQ</span>
+                            <span class="chef-tag">American</span>
+                            <span class="chef-tag">Grill</span>
+                        </div>
+                        <div class="chef-actions">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-calendar-check"></i> Book
+                                Now
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-user"></i> Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Chef 6 -->
+            <div class="col-md-4 col-lg-3">
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1614436201459-156d322d5c4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                            alt="Chef Neha Gupta" />
+                        <div class="chef-badge">Executive Chef</div>
+                    </div>
+                    <div class="chef-info">
+                        <h3 class="chef-name">Neha Gupta</h3>
+                        <div class="chef-rating">
+                            <span><i class="fas fa-star"></i> 5.0</span>
+                            <div>(145 reviews)</div>
+                        </div>
+                        <p class="chef-exp">10+ years experience</p>
+                        <div class="chef-tags">
+                            <span class="chef-tag">French</span>
+                            <span class="chef-tag">Continental</span>
+                            <span class="chef-tag">Pastry</span>
+                        </div>
+                        <div class="chef-actions">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-calendar-check"></i> Book
+                                Now
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-user"></i> Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Add subtle animation to cards when page loads
+        document.addEventListener("DOMContentLoaded", function () {
+            const chefCards = document.querySelectorAll(".chef-card");
+
+            chefCards.forEach((card, index) => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+
+                setTimeout(() => {
+                    card.style.transition =
+                        "opacity 0.5s ease, transform 0.5s ease";
+                    card.style.opacity = "1";
+                    card.style.transform = "translateY(0)";
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+
+</html>
