@@ -14,6 +14,10 @@ use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
+
+    // CONFIRMATION ID PREFIX\
+
+
     /**
      * Show Register Page
      */
@@ -36,20 +40,27 @@ class AuthController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        $confirmationId = 'HZ' . rand(1000, 9999);
 
         $user = new User();
         $user->name     = $request->name;
         $user->email    = $request->email;
         $user->role     = $request->role;
-        $user->confirmation_id = $confirmationId;
+        $user->confirmation_id = $this->generateConfirmationId();
         $user->password = bcrypt($request->password);
         $user->save();
+
 
         //send email
         Mail::to($user->email)->send(new RegistrationMail($user));
 
         return redirect()->route('login')->with('success', 'Registration successful. Please login.');
+    }
+
+    // $confirmationId = 'HZ' . rand(1000, 9999);
+
+    public function generateConfirmationId()
+    {
+        return 'HZ' . rand(1000, 9999);
     }
 
     /**
@@ -169,25 +180,58 @@ class AuthController extends Controller
     public function handleGoogleCallback()
     {
         try {
-            $googleUser = Socialite::driver('google')->user();
+            // Get user info from Google
+            $googleUser = Socialite::driver('google')->stateless()->user();
 
+            // Check if user already exists
             $user = User::where('email', $googleUser->getEmail())->first();
 
-            if (!$user) {
+            if ($user) {
+                // Update missing fields if any
+                $updated = false;
+
+                if (!$user->google_id) {
+                    $user->google_id = $googleUser->getId();
+                    $updated = true;
+                }
+
+                if (!$user->confirmation_id) {
+                    $user->confirmation_id = $this->generateConfirmationId();
+                    $updated = true;
+                }
+
+                if (!$user->profile_image) {
+                    $user->profile_image = $googleUser->getAvatar();
+                    $updated = true;
+                }
+
+                if ($updated) {
+                    $user->save(); // Save updated fields
+                }
+            } else {
+                // New user via Google
                 $user = User::create([
-                    'name'     => $googleUser->getName(),
-                    'email'    => $googleUser->getEmail(),
-                    'password' => bcrypt(Str::random(16)),
-                    'role'     => 0,
+                    'name'            => $googleUser->getName(),
+                    'email'           => $googleUser->getEmail(),
+                    'google_id'       => $googleUser->getId(),
+                    'confirmation_id' => $this->generateConfirmationId(),
+                    'profile_image'   => $googleUser->getAvatar(),
+                    'password'        => bcrypt(Str::random(16)), // optional for Google login
+                    'role'            => 0,
                 ]);
+dd($user);
+                // Optional: send registration email
+                Mail::to($user->email)->send(new RegistrationMail($user));
             }
 
-            Auth::login($user);
+            // Login the user after save/update
+            Auth::login($user, true);
 
             return redirect()->route($this->redirectDashboard());
-
         } catch (\Exception $e) {
-            return redirect()->route('login')->withErrors(['google' => 'Google login failed. Please try again.']);
+            return redirect()->route('login')->withErrors([
+                'google' => 'Google login failed. Please try again. Error: ' . $e->getMessage()
+            ]);
         }
     }
 }
