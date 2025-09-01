@@ -62,12 +62,24 @@
                                 @enderror
                             </div>
 
-                            <div class="d-grid">
+                            <div class="d-grid mb-3">
                                 <button type="submit" class="btn btn-primary btn-block py-3">
                                     <i class="fas fa-user-plus me-2"></i> Create Account
                                 </button>
                             </div>
                         </form>
+
+                        {{-- Divider --}}
+                        <div class="text-center my-3">
+                            <span class="text-muted">OR</span>
+                        </div>
+
+                        {{-- Google Login --}}
+                        <div class="d-grid">
+                            <a href="{{ route('google.login') }}" class="btn btn-danger btn-block py-3">
+                                <i class="fab fa-google me-2"></i> Continue with Google
+                            </a>
+                        </div>
                     </div>
                     <div class="card-footer text-center py-3">
                         <div class="small">

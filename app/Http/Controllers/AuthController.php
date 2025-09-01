@@ -10,7 +10,7 @@ use App\Mail\RegistrationMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Termwind\Components\Dd;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -30,26 +30,24 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
-
         $request->validate([
             'name'     => 'required|string|max:255',
             'email'    => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-         $confirmationId = 'HZ' . rand(1000, 9999);
-
+        $confirmationId = 'HZ' . rand(1000, 9999);
 
         $user = new User();
         $user->name     = $request->name;
         $user->email    = $request->email;
         $user->role     = $request->role;
-         $user->confirmation_id = $confirmationId;
+        $user->confirmation_id = $confirmationId;
         $user->password = bcrypt($request->password);
         $user->save();
 
         //send email
-         Mail::to($user->email)->send(new RegistrationMail($user));
+        Mail::to($user->email)->send(new RegistrationMail($user));
 
         return redirect()->route('login')->with('success', 'Registration successful. Please login.');
     }
@@ -80,7 +78,6 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
-            // Check if user profile is completed
             if ($user->role == 0 && (!$user->phone || !$user->address)) {
                 return redirect()->route('user.profile')->with('warning', 'Please complete your profile first.');
             }
@@ -94,46 +91,42 @@ class AuthController extends Controller
     /**
      * Handle Profile Update
      */
-public function updateProfile(Request $request)
-{
-    $user = Auth::user();
+    public function updateProfile(Request $request)
+    {
+        $user = Auth::user();
 
-    $request->validate([
+        $request->validate([
+            'phone'          => 'nullable|string|max:15',
+            'address'        => 'nullable|string|max:500',
+            'specialization' => 'nullable|string|max:255',
+            'age'            => 'nullable|integer|min:18|max:70',
+            'gender'         => 'nullable|string|in:male,female,other',
+            'language'       => 'nullable|string|max:255',
+            'experience'     => 'nullable|integer|min:0|max:50',
+            'image'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-        'phone'          => 'nullable|string|max:15',
-        'address'        => 'nullable|string|max:500',
-        'specialization' => 'nullable|string|max:255',
-        'age'            => 'nullable|integer|min:18|max:70',
-        'gender'         => 'nullable|string|in:male,female,other',
-        'language'       => 'nullable|string|max:255',
-        'experience'     => 'nullable|integer|min:0|max:50',
-        'image'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
+        $data = $request->only([
+            'phone',
+            'address',
+            'specialization',
+            'age',
+            'gender',
+            'language',
+            'experience'
+        ]);
 
-    // Prepare update data
-    $data = $request->only([
-        'phone',
-        'address',
-        'specialization',
-        'age',
-        'gender',
-        'language',
-        'experience'
-    ]);
-
-    // Handle image upload
-    if ($request->hasFile('image')) {
-        if ($user->image && Storage::disk('public')->exists($user->image)) {
-            Storage::disk('public')->delete($user->image);
+        if ($request->hasFile('image')) {
+            if ($user->image && Storage::disk('public')->exists($user->image)) {
+                Storage::disk('public')->delete($user->image);
+            }
+            $data['image'] = $request->file('image')->store('maids', 'public');
         }
-        $data['image'] = $request->file('image')->store('maids', 'public');
+
+        $user->update($data);
+
+        return redirect()->route('user.dashboard')->with('success', 'Profile updated successfully.');
     }
-
-    // Update user
-    $user->update($data);
-
-    return redirect()->route('user.dashboard')->with('success', 'Profile updated successfully.');
-}
 
     /**
      * Redirect based on Role
@@ -160,5 +153,41 @@ public function updateProfile(Request $request)
     {
         Auth::logout();
         return redirect()->route('login')->with('success', 'You have logged out.');
+    }
+
+    /**
+     * Redirect to Google for authentication
+     */
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    /**
+     * Handle Google callback
+     */
+    public function handleGoogleCallback()
+    {
+        try {
+            $googleUser = Socialite::driver('google')->user();
+
+            $user = User::where('email', $googleUser->getEmail())->first();
+
+            if (!$user) {
+                $user = User::create([
+                    'name'     => $googleUser->getName(),
+                    'email'    => $googleUser->getEmail(),
+                    'password' => bcrypt(Str::random(16)),
+                    'role'     => 0,
+                ]);
+            }
+
+            Auth::login($user);
+
+            return redirect()->route($this->redirectDashboard());
+
+        } catch (\Exception $e) {
+            return redirect()->route('login')->withErrors(['google' => 'Google login failed. Please try again.']);
+        }
     }
 }

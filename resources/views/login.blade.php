@@ -61,6 +61,18 @@
                             Sign In
                         </button>
 
+                        {{-- Divider --}}
+                        <div class="text-center my-3">
+                            <span class="text-muted">OR</span>
+                        </div>
+
+                        {{-- Google Login --}}
+                        <div class="d-grid mb-3">
+                            <a href="{{ route('google.login') }}" class="btn btn-danger btn-lg w-100">
+                                <i class="fab fa-google me-2"></i> Continue with Google
+                            </a>
+                        </div>
+
                         <div class="text-center mt-4">
                             <p class="text-muted">Don't have an account?
                                 <a href="{{ route('register') }}" class="text-decoration-none fw-semibold">Sign up</a>

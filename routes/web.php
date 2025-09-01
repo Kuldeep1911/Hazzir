@@ -18,6 +18,12 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Google OAuth Routes
+
+Route::get('auth/google', [AuthController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
+
+
 // ======================= PROTECTED ROUTES =======================
 Route::middleware(['auth'])->group(function () {
 
