@@ -57,7 +57,7 @@
                 </p>
 
                 <div class="hero-buttons mt-4">
-                    <a href="{{ route('bookings.create') }}" class="btn btn-primary me-2 mb-2">Book Now</a>
+                    <a href="#chefs" class="btn btn-primary me-2 mb-2">Book Now</a>
                     <a href="#" class="btn btn-outline-secondary mb-2">See Offers</a>
                 </div>
             </div>
@@ -73,6 +73,41 @@
 
 
     <!-- Services Grid -->
+    <?php
+    $services = [
+        [
+            'icon' => 'fas fa-cut fa-2x',
+            'title' => 'Salon & Beauty',
+            'desc' => 'Haircuts, styling, facials, manicures & more at home',
+        ],
+        [
+            'icon' => 'fas fa-broom fa-2x',
+            'title' => 'Home Cleaning',
+            'desc' => 'Deep cleaning, regular maid service, sofa & carpet cleaning',
+        ],
+        [
+            'icon' => 'fas fa-tools fa-2x',
+            'title' => 'AC Repair',
+            'desc' => 'Installation, servicing, gas refill & repairs',
+        ],
+        [
+            'icon' => 'fas fa-faucet fa-2x',
+            'title' => 'Plumbing',
+            'desc' => 'Leak repairs, pipe installation, bathroom fittings',
+        ],
+        [
+            'icon' => 'fas fa-bolt fa-2x',
+            'title' => 'Electrician',
+            'desc' => 'Wiring, switchboards, appliance repairs & more',
+        ],
+        [
+            'icon' => 'fas fa-paint-roller fa-2x',
+            'title' => 'Painting',
+            'desc' => 'Interior, exterior, wall texture & waterproofing',
+        ],
+    ];
+    ?>
+
     <section class="section">
         <div class="container">
             <div class="section-title text-center mb-5">
@@ -81,68 +116,21 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="service-card text-center p-4 border rounded h-100 shadow-sm">
+                <?php foreach($services as $service): ?>
+                <div class="col-12 col-sm-6 col-lg-4 ">
+                    <div class="service-card text-center p-4  rounded h-100 shadow shadow-lg">
                         <div class="service-icon mb-3">
-                            <i class="fas fa-cut fa-2x"></i>
+                            <i class="<?= $service['icon'] ?>"></i>
                         </div>
-                        <h3>Salon & Beauty</h3>
-                        <p>Haircuts, styling, facials, manicures & more at home</p>
+                        <h3><?= $service['title'] ?></h3>
+                        <p><?= $service['desc'] ?></p>
                     </div>
                 </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="service-card text-center p-4 border rounded h-100 shadow-sm">
-                        <div class="service-icon mb-3">
-                            <i class="fas fa-broom fa-2x"></i>
-                        </div>
-                        <h3>Home Cleaning</h3>
-                        <p>Deep cleaning, regular maid service, sofa & carpet cleaning</p>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="service-card text-center p-4 border rounded h-100 shadow-sm">
-                        <div class="service-icon mb-3">
-                            <i class="fas fa-tools fa-2x"></i>
-                        </div>
-                        <h3>AC Repair</h3>
-                        <p>Installation, servicing, gas refill & repairs</p>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="service-card text-center p-4 border rounded h-100 shadow-sm">
-                        <div class="service-icon mb-3">
-                            <i class="fas fa-faucet fa-2x"></i>
-                        </div>
-                        <h3>Plumbing</h3>
-                        <p>Leak repairs, pipe installation, bathroom fittings</p>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="service-card text-center p-4 border rounded h-100 shadow-sm">
-                        <div class="service-icon mb-3">
-                            <i class="fas fa-bolt fa-2x"></i>
-                        </div>
-                        <h3>Electrician</h3>
-                        <p>Wiring, switchboards, appliance repairs & more</p>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="service-card text-center p-4 border rounded h-100 shadow-sm">
-                        <div class="service-icon mb-3">
-                            <i class="fas fa-paint-roller fa-2x"></i>
-                        </div>
-                        <h3>Painting</h3>
-                        <p>Interior, exterior, wall texture & waterproofing</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+
 
 
 
@@ -284,9 +272,9 @@
         </div>
     </section>
 
+    {{-- food Categories --}}
 
-
-    <section class="section offers py-5 bg-light">
+    {{-- <section class="section offers py-5 bg-light">
         <div class="container py-3 py-md-5">
             <!-- Header -->
             <div class="row mb-4 mb-md-5">
@@ -486,7 +474,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 
@@ -564,222 +552,240 @@
 
     <div class="container">
         <div class="header">
-            <h1>Our Master Chefs</h1>
-            <p class="lead">
-                Discover our talented team of professional chefs. Hover over
-                a card to see their details and specialties.
-            </p>
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Our Master Chefs</h2>
+                <p class="text-muted"> Discover our talented team of professional chefs. Hover over
+                    a card to see their details and specialties.</p>
+            </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="chefs">
             @foreach ($cheif as $chef)
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="chef-card">
-                        <div class="chef-image">
-                            <img src="{{ asset('storage/' . $chef->image) }}" alt="Chef {{ $chef->name }}" />
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="chef-card h-100 shadow rounded">
+                        <div class="chef-image text-center">
+                            <img src="{{ asset('storage/' . $chef->image) }}" alt="Chef {{ $chef->name }}"
+                                class="img-fluid rounded" />
                             <div class="chef-badge">Available Today</div>
                         </div>
-                        <div class="chef-info">
-                            <h3 class="chef-name">{{ $chef->name }}</h3>
-                            <div class="chef-rating">
-                                <span><i class="fas fa-star"></i> </span>
-                                <div>( reviews)</div>
+                        <div class="chef-info p-3">
+                            <h3 class="chef-name h5">{{ $chef->name }}</h3>
+
+                            <div class="chef-rating d-flex align-items-center mb-2">
+                                <span class="text-warning"><i class="fas fa-star"></i></span>
+                                <div class="ms-1">( reviews)</div>
                             </div>
-                            <p class="chef-exp">{{ $chef->experience }}+ years experience</p>
-                            <div class="chef-tags">
-                                {{-- @foreach (explode(',', $chef->specialties) as $specialty)
-                                    <span class="chef-tag">{{ trim($specialty) }}</span>
-                                @endforeach --}}
-                            </div>
-                            <div class="chef-actions">
-                                <a href="{{ route('bookings.create', $chef->id) }}" class="btn btn-primary">
+
+                            <p class="chef-exp text-white">{{ $chef->experience }}+ years experience</p>
+
+                            {{-- <div class="chef-tags mb-2">
+
+
+                        @foreach (explode(',', $chef->specialties) as $specialty)
+                            <span class="badge bg-light text-dark">{{ trim($specialty) }}</span>
+                        @endforeach
+
+                    </div> --}}
+
+                            <div class="chef-actions d-flex justify-content-between">
+                                <a href="{{ route('bookings.create', $chef->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fas fa-calendar-check"></i> Book Now
                                 </a>
-
-                                <a href="{{ route('profile.show', $chef->id) }}" class="btn btn-outline">
+                                <a href="{{ route('profile.show', $chef->id) }}"
+                                    class="btn btn-outline-secondary btn-sm">
                                     <i class="fas fa-user"></i> Profile
                                 </a>
                             </div>
-
                         </div>
                     </div>
                 </div>
             @endforeach
-
+                   {{-- see more button --}}
+        <div class="text-center mt-4 " id="see-more-chefs">
+            <a href="#" class="btn btn-lg px-4 mb-4 text-center rounded-pill">
+                See More Chefs <i class="fas fa-arrow-right ms-2"></i>
+            </a>
         </div>
+        </div>
+
 
     </div>
 
+        <!-- How It Works -->
+        <section class="section how-it-works py-5 bg-primary text-white reveal" id="how-it-works">
+            <div class="container text-center">
 
-    <!-- How It Works -->
-    <section class="section how-it-works py-5 bg-primary text-white reveal">
-        <div class="container text-center">
-
-            <!-- Section Title -->
-            <div class="mb-5">
-                <h2 class="fw-bold display-5 text-light  ">How <span style="color: #ff7b00">Haazir</span> Works</h2>
-                <p class="text-white fs-5">Get your home services in just <span class="fw-semibold text-primary">3 simple
-                        steps</span></p>
-            </div>
-
-            <!-- Steps Wrapper -->
-            <div class="row g-4 justify-content-center">
-
-                <!-- Step 1 -->
-                <div class="col-md-4">
-                    <div class="card border-0 shadow h-100 rounded-4">
-                        <div class="card-body p-4">
-                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center fs-4 fw-bold mb-3"
-                                style="width:60px; height:60px;">
-                                1
-                            </div>
-                            <h3 class="fw-bold text-dark">Choose Your Service</h3>
-                            <p class="text-muted mt-3">Browse our wide range of services and select what you need.
-                                Customize options if available.</p>
-                        </div>
-                    </div>
+                <!-- Section Title -->
+                <div class="mb-5">
+                    <h2 class="fw-bold display-5 text-light  ">How <span style="color: #ff7b00">Haazir</span> Works</h2>
+                    <p class="text-white fs-5">Get your home services in just <span class="fw-semibold text-primary">3
+                            simple
+                            steps</span></p>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="col-md-4">
-                    <div class="card border-0 shadow h-100 rounded-4">
-                        <div class="card-body p-4">
-                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center fs-4 fw-bold mb-3"
-                                style="width:60px; height:60px;">
-                                2
+                <!-- Steps Wrapper -->
+                <div class="row g-4 justify-content-center">
+
+                    <!-- Step 1 -->
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow h-100 rounded-4">
+                            <div class="card-body p-4">
+                                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center fs-4 fw-bold mb-3"
+                                    style="width:60px; height:60px;">
+                                    1
+                                </div>
+                                <h3 class="fw-bold text-dark">Choose Your Service</h3>
+                                <p class="text-muted mt-3">Browse our wide range of services and select what you need.
+                                    Customize options if available.</p>
                             </div>
-                            <h3 class="fw-bold text-dark">Schedule Appointment</h3>
-                            <p class="text-muted mt-3">Pick a date and time that works for you. We even offer same-day
-                                services for urgent needs.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Step 3 -->
-                <div class="col-md-4">
-                    <div class="card border-0 shadow h-100 rounded-4">
-                        <div class="card-body p-4">
-                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center fs-4 fw-bold mb-3"
-                                style="width:60px; height:60px;">
-                                3
+                    <!-- Step 2 -->
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow h-100 rounded-4">
+                            <div class="card-body p-4">
+                                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center fs-4 fw-bold mb-3"
+                                    style="width:60px; height:60px;">
+                                    2
+                                </div>
+                                <h3 class="fw-bold text-dark">Schedule Appointment</h3>
+                                <p class="text-muted mt-3">Pick a date and time that works for you. We even offer same-day
+                                    services for urgent needs.</p>
                             </div>
-                            <h3 class="fw-bold text-dark">Enjoy Professional Service</h3>
-                            <p class="text-muted mt-3">Our certified professional arrives at your doorstep at the scheduled
-                                time to provide a seamless experience.</p>
                         </div>
                     </div>
+
+                    <!-- Step 3 -->
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow h-100 rounded-4">
+                            <div class="card-body p-4">
+                                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center fs-4 fw-bold mb-3"
+                                    style="width:60px; height:60px;">
+                                    3
+                                </div>
+                                <h3 class="fw-bold text-dark">Enjoy Professional Service</h3>
+                                <p class="text-muted mt-3">Our certified professional arrives at your doorstep at the
+                                    scheduled
+                                    time to provide a seamless experience.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Testimonials -->
+        <section class="section testimonials reveal">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Our Customers Say</h2>
+                    <p>Trusted by thousands of happy customers across the city</p>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Testimonials -->
-    <section class="section testimonials reveal">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Customers Say</h2>
-                <p>Trusted by thousands of happy customers across the city</p>
-            </div>
-
-            <div class="testimonial-grid">
-                @foreach ($testimonials as $testimonial)
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <div class="testimonial-avatar">
-                                <img src="{{ $testimonial->avatar }}" alt="{{ $testimonial->name }}">
-                            </div>
-                            <div class="testimonial-user">
-                                <h4>{{ $testimonial->name }}</h4>
-                                <div class="testimonial-rating">
-                                    @for ($i = 1; $i <= 5; $i++)
-                                        @if ($i <= floor($testimonial->rating))
-                                            <i class="fas fa-star"></i>
-                                        @elseif($i - $testimonial->rating < 1)
-                                            <i class="fas fa-star-half-alt"></i>
-                                        @else
-                                            <i class="far fa-star"></i>
-                                        @endif
-                                    @endfor
+                <div class="testimonial-grid">
+                    @foreach ($testimonials as $testimonial)
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <img src="{{ $testimonial->avatar }}" alt="{{ $testimonial->name }}">
+                                </div>
+                                <div class="testimonial-user">
+                                    <h4>{{ $testimonial->name }}</h4>
+                                    <div class="testimonial-rating">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            @if ($i <= floor($testimonial->rating))
+                                                <i class="fas fa-star"></i>
+                                            @elseif($i - $testimonial->rating < 1)
+                                                <i class="fas fa-star-half-alt"></i>
+                                            @else
+                                                <i class="far fa-star"></i>
+                                            @endif
+                                        @endfor
+                                    </div>
                                 </div>
                             </div>
+                            <p class="testimonial-text">"{{ $testimonial->message }}"</p>
                         </div>
-                        <p class="testimonial-text">"{{ $testimonial->message }}"</p>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-
-    <!-- FAQ -->
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Frequently Asked Questions</h2>
-                <p>Find answers to common questions about our services</p>
-            </div>
-
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How do I book a service?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>You can book a service through our website or mobile app. Simply select the service you need,
-                            choose your preferred date and time, and make the payment. You'll receive a confirmation with
-                            the professional's details.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Are your professionals verified?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, all our professionals go through a rigorous verification process including background
-                            checks, identity verification, and skill assessments. We only onboard qualified and experienced
-                            professionals.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What if I need to reschedule or cancel?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>You can reschedule or cancel your appointment up to 2 hours before the scheduled time without any
-                            charges through your account dashboard or by contacting our customer support.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What safety measures do you have in place?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>All our professionals follow strict safety protocols including wearing masks, using sanitizers,
-                            and maintaining social distancing. They undergo regular health check-ups and are fully
-                            vaccinated.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How are the prices determined?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our prices are transparent and based on industry standards, service complexity, and time
-                            required. You'll see the final price before booking with no hidden charges.</p>
-                    </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
-@endsection
+        </section>
+
+
+        <!-- FAQ -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Find answers to common questions about our services</p>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How do I book a service?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can book a service through our website or mobile app. Simply select the service you need,
+                                choose your preferred date and time, and make the payment. You'll receive a confirmation
+                                with
+                                the professional's details.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Are your professionals verified?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, all our professionals go through a rigorous verification process including background
+                                checks, identity verification, and skill assessments. We only onboard qualified and
+                                experienced
+                                professionals.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What if I need to reschedule or cancel?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can reschedule or cancel your appointment up to 2 hours before the scheduled time without
+                                any
+                                charges through your account dashboard or by contacting our customer support.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What safety measures do you have in place?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>All our professionals follow strict safety protocols including wearing masks, using
+                                sanitizers,
+                                and maintaining social distancing. They undergo regular health check-ups and are fully
+                                vaccinated.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How are the prices determined?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our prices are transparent and based on industry standards, service complexity, and time
+                                required. You'll see the final price before booking with no hidden charges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endsection

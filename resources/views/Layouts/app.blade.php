@@ -16,6 +16,10 @@
 </head>
 
 <body>
+    <!-- Loader -->
+<div id="loader" class="loader"></div>
+    <!-- End Loader -->
+
     @include('layouts.header')
 
     <main class="container-fuild">
