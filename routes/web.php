@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ServiceController;
 
 // ======================= PUBLIC ROUTES =========================
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -44,9 +46,20 @@ Route::middleware(['auth'])->group(function () {
 
 
     // ---------- Admin Dashboard ----------
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    // Route::get('/admin/dashboard', function () {
+    //     return view('admin.dashboard');
+    // })->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/Admin/Users', [AdminController::class, 'showUsers'])->name('admin.users');
+    Route::prefix('admin')->group(function(){
+    Route::resource('users', App\Http\Controllers\Admin\UserController::class);
+    Route::get('services', [ServiceController::class, 'index'])->name('admin.services');
+    Route::get('services/create', [ServiceController::class, 'create'])->name('admin.services.create');
+    Route::post('services', [ServiceController::class, 'store'])->name('admin.services.store');
+    Route::delete('services/{id}', [ServiceController::class, 'destroy'])->name('admin.services.destroy');
+});
+
+
 
     // ---------- Client Dashboard ----------
     Route::get('/client/dashboard', function () {
@@ -91,3 +104,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/bookings/success/{id}', [BookingController::class, 'success'])->name('bookings.success');
     Route::post('/bookings/verify/{id}', [BookingController::class, 'verify'])->name('bookings.verify');
 });
+

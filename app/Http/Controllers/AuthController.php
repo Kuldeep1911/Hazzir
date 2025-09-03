@@ -179,59 +179,33 @@ class AuthController extends Controller
      */
     public function handleGoogleCallback()
     {
-        try {
-            // Get user info from Google
-            $googleUser = Socialite::driver('google')->stateless()->user();
 
-            // Check if user already exists
-            $user = User::where('email', $googleUser->getEmail())->first();
+        $user = Socialite::driver('google')->stateless()->user();
 
-            if ($user) {
-                // Update missing fields if any
-                $updated = false;
-
-                if (!$user->google_id) {
-                    $user->google_id = $googleUser->getId();
-                    $updated = true;
-                }
-
-                if (!$user->confirmation_id) {
-                    $user->confirmation_id = $this->generateConfirmationId();
-                    $updated = true;
-                }
-
-                if (!$user->profile_image) {
-                    $user->profile_image = $googleUser->getAvatar();
-                    $updated = true;
-                }
-
-                if ($updated) {
-                    $user->save(); // Save updated fields
-                }
-            } else {
-                // New user via Google
-                $user = User::create([
-                    'name'            => $googleUser->getName(),
-                    'email'           => $googleUser->getEmail(),
-                    'google_id'       => $googleUser->getId(),
-                    'confirmation_id' => $this->generateConfirmationId(),
-                    'profile_image'   => $googleUser->getAvatar(),
-                    'password'        => bcrypt(Str::random(16)), // optional for Google login
-                    'role'            => 0,
-                ]);
-dd($user);
-                // Optional: send registration email
-                Mail::to($user->email)->send(new RegistrationMail($user));
-            }
-
-            // Login the user after save/update
-            Auth::login($user, true);
-
+        $existingUser = User::where('email', $user->getEmail())->first();
+        if ($existingUser) {
+            Auth::login($existingUser);
             return redirect()->route($this->redirectDashboard());
-        } catch (\Exception $e) {
-            return redirect()->route('login')->withErrors([
-                'google' => 'Google login failed. Please try again. Error: ' . $e->getMessage()
-            ]);
+        } else {
+            // Create a new user
+            $newUser = new User();
+            $newUser->name = $user->getName();
+            $newUser->email = $user->getEmail();
+            $googleId = $user->getId();
+            $newUser->google_id = $googleId;
+            $profileImage = $user->getAvatar();
+            $newUser->image = $profileImage;
+            $newUser->role = 0; // Default role as User
+            $newUser->confirmation_id = $this->generateConfirmationId();
+            $newUser->password = Hash::make(Str::random(16)); // Random password
+            $newUser->save();
+
+            Auth::login($newUser);
+            return redirect()->route('user.profile')->with('success', 'Please complete your profile.');
         }
+
+        // For debugging purposes
+        //
+
     }
 }

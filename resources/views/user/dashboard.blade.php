@@ -9,7 +9,7 @@
             <div class="card border-0 mb-4 p-4 shadow-sm bg-light">
                 <div class="row align-items-center">
                     <div class="col-md-auto text-center mb-3 mb-md-0">
-                        <img src="{{ $user->image ? asset('storage/' . $user->image) : 'https://via.placeholder.com/150' }}"
+                        <img src="{{ $user->image }}"
                              class="rounded-circle border border-white border-3" width="150" height="150" alt="Profile Image">
                     </div>
                     <div class="col-md">

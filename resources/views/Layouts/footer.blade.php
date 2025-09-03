@@ -97,44 +97,44 @@
 
 
 <script>
-       window.addEventListener("load", function () {
-        document.getElementById("loader").style.display = "none";
+document.addEventListener("DOMContentLoaded", function () {
+    // Loader hide after page fully loads
+    window.addEventListener("load", function () {
+        const loader = document.getElementById("loader");
+        if (loader) {
+            loader.style.display = "none";
+        }
     });
-      document.addEventListener("DOMContentLoaded", function () {
+
+    // Intersection Observer for animations
     const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target); // animate only once
-          }
-        });
-      },
-      { threshold: 0.2 } // 20% visible triggers animation
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target); // animate only once
+                }
+            });
+        },
+        { threshold: 0.2 } // 20% visible triggers animation
     );
 
-    // Select all elements that should animate
     const elements = document.querySelectorAll(
-      ".hero-content, .hero-image, .service-card, .food-card, .promo-card, .popular-card, .step, .testimonial-card, .faq-item, .footer-container, .footer-about, .footer-links, .footer-newsletter, .footer-bottom, .service-icon, .hero h1, .section-title h2, .hero p, .section-title p"
+        ".hero-content, .hero-image, .service-card, .food-card, .promo-card, .popular-card, .step, .testimonial-card, .faq-item, .footer-container, .footer-about, .footer-links, .footer-newsletter, .footer-bottom, .service-icon, .hero h1, .section-title h2, .hero p, .section-title p"
     );
 
     elements.forEach((el) => observer.observe(el));
-  });
+
     // FAQ Accordion
     const faqQuestions = document.querySelectorAll('.faq-question');
-
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
             const answer = question.nextElementSibling;
             const isActive = question.classList.contains('active');
 
             // Close all answers first
-            document.querySelectorAll('.faq-answer').forEach(ans => {
-                ans.classList.remove('show');
-            });
-            document.querySelectorAll('.faq-question').forEach(q => {
-                q.classList.remove('active');
-            });
+            document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('show'));
+            document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
 
             // Open clicked one if it wasn't active
             if (!isActive) {
@@ -144,17 +144,18 @@
         });
     });
 
-    // Mobile Menu Toggle (would need implementation)
+    // Mobile Menu Toggle
     const mobileMenu = document.querySelector('.mobile-menu');
     const nav = document.querySelector('nav ul');
 
-    mobileMenu.addEventListener('click', () => {
-        nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-    });
-
-
-
+    if (mobileMenu && nav) {
+        mobileMenu.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+    }
+});
 </script>
+
 </body>
 
 </html>
