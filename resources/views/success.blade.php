@@ -39,7 +39,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title text-success fw-bold">Booking Details</h5>
                                     <ul class="list-unstyled mb-0 mt-3">
-                                        <li class="mb-2"><strong>Maid Type:</strong> {{ $booking->maid_type }}</li>
+                                        <li class="mb-2"><strong>Service Type:</strong> {{ $booking->maid_type }}</li>
                                         <li class="mb-2"><strong>Confirmation ID:</strong> {{ $user->confirmation_id ?? 'NA' }}</li>
                                         <li><strong>Service Date:</strong> {{ $booking->service_date->format('d M Y, h:i A') }}</li>
                                     </ul>

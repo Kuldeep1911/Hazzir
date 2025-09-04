@@ -7,18 +7,30 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
 {
     // Show booking form
-    public function create()
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'Please login to book.');
-        }
-
-        return view('booking');
+public function create()
+{
+    // अगर user login नहीं है
+    if (!Auth::check()) {
+        return redirect()->route('login')->with('error', 'Please login to book.');
     }
+
+    $user = Auth::user();
+
+    // सिर्फ़ role = 0 को allow करो
+    if ($user->role != 0) {
+        return redirect()->back()->with('error', 'You are not authorized to book service.');
+    }
+
+    // get services
+    $services = DB::table('services')->get();
+
+    return view('booking', compact('services'));
+}
 
     // Handle booking + generate OTP
     public function store(Request $request)
@@ -66,6 +78,8 @@ class BookingController extends Controller
             ->firstOrFail();
 
             $user = User::findOrFail($booking->user_id);
+            $services = Booking::with('service')->get();
+
 
         return view('success', compact('booking','user'));
     }
@@ -94,5 +108,12 @@ class BookingController extends Controller
         ]);
 
         return back()->with('success', 'OTP verified successfully. Service completed.');
+    }
+
+    // Admin: Show all bookings
+    public function showBookings()
+    {
+        $bookings = Booking::with('user')->latest()->get();
+        return view('Admin.bookings.index', compact('bookings'));
     }
 }

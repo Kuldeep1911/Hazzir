@@ -99,12 +99,14 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     // Loader hide after page fully loads
-    window.addEventListener("load", function () {
-        const loader = document.getElementById("loader");
-        if (loader) {
-            loader.style.display = "none";
-        }
-    });
+window.addEventListener("load", function () {
+    const loaderOverlay = document.getElementById("loader");
+    if (loaderOverlay) {
+        loaderOverlay.style.transition = "opacity 0.5s ease";
+        loaderOverlay.style.opacity = "0";
+        setTimeout(() => loaderOverlay.style.display = "none", 500);
+    }
+});
 
     // Intersection Observer for animations
     const observer = new IntersectionObserver(

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Service;
+use App\Models\Booking;
 
 class HomeController extends Controller
 {
@@ -57,10 +59,10 @@ class HomeController extends Controller
         ];
 
         $cheif = DB::table('users')
-    ->where('role', 0)
-    ->orderBy('created_at', 'desc')
-    ->take(8)
-    ->get();
+            ->where('role', 0)
+            ->orderBy('created_at', 'desc')
+            ->take(8)
+            ->get();
 
 
         return view('home', compact('testimonials', 'cheif'));
@@ -85,7 +87,9 @@ class HomeController extends Controller
     // Services Page
     public function services()
     {
-        return view('services');
+         $services = Service::with('options')->get();
+
+        return view('services', compact('services'));
     }
 
     // Offers Page
@@ -128,5 +132,13 @@ class HomeController extends Controller
     public function terms()
     {
         return view('terms');
+    }
+
+
+    // Client Dashboard
+    public function clientDashboard()
+    {
+        $user = Auth::user();
+        return view('team.dashboard', compact('user'));
     }
 }

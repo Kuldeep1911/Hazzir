@@ -89,12 +89,16 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
-            if ($user->role == 0 && (!$user->phone || !$user->address)) {
-                return redirect()->route('user.profile')->with('warning', 'Please complete your profile first.');
-            }
 
+        // If user role = 2 (team/client) and profile incomplete
+        if ($user->role == 2 && (!$user->phone || !$user->address || !$user->specialization || !$user->image )) {
+            return redirect()->route('user.profile')->with('warning', 'Please complete your profile first.');
+        }
+
+            // Default redirect
             return redirect()->route($this->redirectDashboard());
         }
+
 
         return back()->withErrors(['email' => 'Invalid credentials.']);
     }
@@ -151,7 +155,8 @@ class AuthController extends Controller
         } elseif ($role == 1) {
             return 'admin.dashboard';
         } elseif ($role == 2) {
-            return 'client.dashboard';
+
+            return 'team.dashboard';
         }
 
         return 'home';
@@ -195,7 +200,7 @@ class AuthController extends Controller
             $newUser->google_id = $googleId;
             $profileImage = $user->getAvatar();
             $newUser->image = $profileImage;
-            $newUser->role = 0; // Default role as User
+            $newUser->role = 2; // Default role as User
             $newUser->confirmation_id = $this->generateConfirmationId();
             $newUser->password = Hash::make(Str::random(16)); // Random password
             $newUser->save();

@@ -4,7 +4,6 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ServiceController;
 
@@ -16,15 +15,13 @@ Route::get('/register', [AuthController::class, 'loadRegister'])->name('register
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 
 Route::get('/login', [AuthController::class, 'loadLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post')->middleware('throttle:5,1');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Google OAuth Routes
-
 Route::get('auth/google', [AuthController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
-
 
 // ======================= PROTECTED ROUTES =======================
 Route::middleware(['auth'])->group(function () {
@@ -34,37 +31,36 @@ Route::middleware(['auth'])->group(function () {
         return view('user.profile'); // profile form
     })->name('user.profile');
 
-    // show profile
-    Route::get('/profile/{id}', [HomeController::class, 'showProfile'])
-        ->name('profile.show');   // ✅ FIXED NAME
+    Route::get('/profile/{id}', [HomeController::class, 'showProfile'])->name('profile.show');
+    Route::post('/profile/update', [AuthController::class, 'updateProfile'])->name('profile.update');
 
-    Route::post('/profile/update', [AuthController::class, 'updateProfile'])
-        ->name('profile.update');   // ✅ FIXED NAME
+    // ---------- User Dashboard (role 0 only) ----------
+    Route::middleware('checkRole:0')->group(function () {
+        Route::get('/user/dashboard', [HomeController::class, 'dashboard'])->name('user.dashboard');
+    });
 
-    // ---------- User Dashboard ----------
-    Route::get('/user/dashboard',[HomeController::class,'dashboard'])->name('user.dashboard');
+    // ---------- Admin Dashboard (role 1 only) ----------
+    Route::middleware('checkRole:1')->group(function () {
+        Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+        Route::get('/Admin/Users', [AdminController::class, 'showUsers'])->name('admin.users');
+        Route::get('/admin/showbooking', [BookingController::class, 'showBookings'])->name('admin.showbooking');
 
+        Route::prefix('admin')->group(function () {
+            Route::resource('users', App\Http\Controllers\Admin\UserController::class);
+            Route::get('services', [ServiceController::class, 'index'])->name('admin.services');
+            Route::get('services/create', [ServiceController::class, 'create'])->name('admin.services.create');
+            Route::post('services', [ServiceController::class, 'store'])->name('admin.services.store');
+            Route::delete('services/{id}', [ServiceController::class, 'destroy'])->name('admin.services.destroy');
+        });
+    });
 
-    // ---------- Admin Dashboard ----------
-    // Route::get('/admin/dashboard', function () {
-    //     return view('admin.dashboard');
-    // })->name('admin.dashboard');
-    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/Admin/Users', [AdminController::class, 'showUsers'])->name('admin.users');
-    Route::prefix('admin')->group(function(){
-    Route::resource('users', App\Http\Controllers\Admin\UserController::class);
-    Route::get('services', [ServiceController::class, 'index'])->name('admin.services');
-    Route::get('services/create', [ServiceController::class, 'create'])->name('admin.services.create');
-    Route::post('services', [ServiceController::class, 'store'])->name('admin.services.store');
-    Route::delete('services/{id}', [ServiceController::class, 'destroy'])->name('admin.services.destroy');
-});
-
-
-
-    // ---------- Client Dashboard ----------
-    Route::get('/client/dashboard', function () {
-        return view('client.dashboard');
-    })->name('client.dashboard');
+    // ---------- Team Dashboard (role 2 only) ----------
+    Route::middleware('checkRole:2')->group(function () {
+        Route::get('/team/dashboard', [ServiceController::class, 'dashboard'])->name('team.dashboard');
+        Route::get('/team/services', [ServiceController::class, 'services'])->name('team.services');
+        Route::get('/team/total-services', [ServiceController::class, 'totalServices'])->name('team.totalServices');
+        Route::get('/team/performance', [ServiceController::class, 'performance'])->name('team.performance');
+    });
 });
 
 // ======================= EXTRA PAGES ============================
@@ -83,25 +79,10 @@ Route::fallback(function () {
     return view('errors.404');
 });
 
-// Booking routes only for logged-in users
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/booking?id', [BookingController::class, 'create'])->name('bookings.create');
-//     Route::post('/booking', [BookingController::class, 'store'])->name('bookings.store');
-//     Route::get('/verify/{id}', [BookingController::class, 'showVerifyForm'])->name('bookings.verify.form');
-//     Route::post('/verify/{id}', [BookingController::class, 'verify'])->name('bookings.verify');
-//     // Route::get('/success', [BookingController::class, 'success'])->name('bookings.success');
-//     // Route::get('/bookings/success/{id}', [BookingController::class, 'success'])->name('bookings.success');
-//     // web.php
-// Route::get('/bookings/success', [BookingController::class, 'success'])
-//     ->name('bookings.success');
-
-
-// });
-
-Route::middleware('auth')->group(function () {
+// ======================= BOOKING ROUTES =========================
+Route::middleware(['auth', 'checkRole:0'])->group(function () {
     Route::get('/bookings/create', [BookingController::class, 'create'])->name('bookings.create');
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
     Route::get('/bookings/success/{id}', [BookingController::class, 'success'])->name('bookings.success');
     Route::post('/bookings/verify/{id}', [BookingController::class, 'verify'])->name('bookings.verify');
 });
-

@@ -70,4 +70,10 @@ class Kernel extends HttpKernel
         'isUser' => \App\Http\Middleware\IsUser::class,
         'isClient' => \App\Http\Middleware\IsClient::class,
     ];
+
+    protected $routeMiddleware = [
+    // default middlewares...
+    'checkRole' => \App\Http\Middleware\CheckRole::class,
+];
+
 }

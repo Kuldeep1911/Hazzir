@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Models\ServiceOption;
 use Illuminate\Http\Request;
+use App\Models\Booking;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
@@ -54,5 +57,41 @@ class ServiceController extends Controller
         $service->delete();
 
         return redirect()->route('admin.services')->with('success', 'Service deleted successfully.');
+    }
+
+    // Team Dashboard
+    public function dashboard()
+    {
+        $user = Auth::user();
+
+        // सिर्फ़ logged in team member की bookings
+        $bookings = Booking::where('team_id', $user->id)->latest()->take(5)->get();
+
+        return view('team.dashboard', compact('bookings'));
+    }
+
+    public function services()
+    {
+        $user = Auth::user();
+        $services = Booking::where('team_id', $user->id)->get();
+
+        return view('team.services', compact('services'));
+    }
+
+    public function totalServices()
+    {
+        $user = Auth::user();
+        $total = Booking::where('team_id', $user->id)->count();
+
+        return view('team.totalServices', compact('total'));
+    }
+
+    public function performance()
+    {
+        $user = Auth::user();
+        $completed = Booking::where('team_id', $user->id)->where('status', 'completed')->count();
+        $pending = Booking::where('team_id', $user->id)->where('status', 'pending')->count();
+
+        return view('team.performance', compact('completed', 'pending'));
     }
 }

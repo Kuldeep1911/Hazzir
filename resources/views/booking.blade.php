@@ -56,44 +56,15 @@
                                         <i class="bi bi-people"></i>
                                     </span>
                                     <select class="form-select" id="maid_type" name="maid_type" required>
-                                        <option value="">Select Maid Type</option>
-
-                                        <option value="Daily Cleaner"
-                                            {{ old('maid_type') == 'Daily Cleaner' ? 'selected' : '' }}>
-                                            Daily Cleaner
-                                        </option>
-
-                                        <!-- Cooking Options -->
-                                        <optgroup label="Cooking">
-                                            <option value="Cook - On Requirement"
-                                                {{ old('maid_type') == 'Cook - On Requirement' ? 'selected' : '' }}>
-                                                Cook (On Requirement)
+                                        <option value="">Select Service</option>
+                                        @foreach ($services as $service)
+                                            <option value="{{ $service->id }}"
+                                                {{ old('maid_type') == $service->id ? 'selected' : '' }}>
+                                                {{ $service->name }}
                                             </option>
-                                            <option value="Cook - Monthly Subscription"
-                                                {{ old('maid_type') == 'Cook - Monthly Subscription' ? 'selected' : '' }}>
-                                                Cook (Monthly Subscription)
-                                            </option>
-                                        </optgroup>
+                                        @endforeach
 
-                                        <option value="Full-time" {{ old('maid_type') == 'Full-time' ? 'selected' : '' }}>
-                                            Full-time
-                                        </option>
 
-                                        <option value="Baby Care" {{ old('maid_type') == 'Baby Care' ? 'selected' : '' }}>
-                                            Baby Care
-                                        </option>
-
-                                        <!-- Dishwashing Options -->
-                                        <optgroup label="Dishwashing">
-                                            <option value="Dishwashing - On Requirement"
-                                                {{ old('maid_type') == 'Dishwashing - On Requirement' ? 'selected' : '' }}>
-                                                Dishwashing (On Requirement)
-                                            </option>
-                                            <option value="Dishwashing - Monthly Subscription"
-                                                {{ old('maid_type') == 'Dishwashing - Monthly Subscription' ? 'selected' : '' }}>
-                                                Dishwashing (Monthly Subscription)
-                                            </option>
-                                        </optgroup>
                                     </select>
 
                                 </div>

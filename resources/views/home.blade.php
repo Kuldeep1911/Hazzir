@@ -6,69 +6,70 @@
     <!-- Header -->
 
 
-    <!-- Hero Section -->
-    <section class="hero py-5">
-        <div class="container hero-container d-flex flex-column flex-lg-row align-items-center justify-content-between">
+<!-- Hero Section -->
+<section class="hero py-5">
+    <div class="container row hero-container d-flex flex-column flex-lg-row align-items-center justify-content-between">
 
-            <!-- Hero Content -->
-            <div class="hero-content text-center text-lg-start mb-4 mb-lg-0">
-                <h1 id="typewriter" class="fw-bold"></h1>
+        <!-- Hero Content -->
+        <div class="hero-content text-center text-lg-start mb-4 mb-lg-0 col-lg-8 border-lg-end pe-lg-4">
+            <h1 id="typewriter" class="fw-bold"></h1>
 
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        const texts = [
-                            "Premium At-Home Services On Demand",
-                            "Trusted Professionals, Hassle-Free Experience",
-                            "Quality Service, Right at Your Doorstep",
-                            "Book Today, Relax Tomorrow"
-                        ];
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const texts = [
+                        "Premium At-Home Services On Demand",
+                        "Trusted Professionals, Hassle-Free Experience",
+                        "Quality Service, Right at Your Doorstep",
+                        "Book Today, Relax Tomorrow"
+                    ];
 
-                        const el = document.getElementById("typewriter");
-                        let textIndex = 0;
-                        let charIndex = 0;
-                        let isDeleting = false;
+                    const el = document.getElementById("typewriter");
+                    let textIndex = 0;
+                    let charIndex = 0;
+                    let isDeleting = false;
 
-                        function type() {
-                            const currentText = texts[textIndex];
+                    function type() {
+                        const currentText = texts[textIndex];
 
-                            if (isDeleting) {
-                                el.textContent = currentText.substring(0, charIndex--);
-                            } else {
-                                el.textContent = currentText.substring(0, charIndex++);
-                            }
-
-                            if (!isDeleting && charIndex === currentText.length) {
-                                setTimeout(() => isDeleting = true, 1200);
-                            } else if (isDeleting && charIndex < 0) {
-                                isDeleting = false;
-                                textIndex = (textIndex + 1) % texts.length;
-                            }
-
-                            setTimeout(type, isDeleting ? 50 : 90);
+                        if (isDeleting) {
+                            el.textContent = currentText.substring(0, charIndex--);
+                        } else {
+                            el.textContent = currentText.substring(0, charIndex++);
                         }
 
-                        type();
-                    });
-                </script>
+                        if (!isDeleting && charIndex === currentText.length) {
+                            setTimeout(() => isDeleting = true, 1200);
+                        } else if (isDeleting && charIndex < 0) {
+                            isDeleting = false;
+                            textIndex = (textIndex + 1) % texts.length;
+                        }
 
-                <p class="mt-3 text-dark">
-                    Book certified professionals for all your home service needs. Quality guaranteed, hassle-free
-                    experience.
-                </p>
+                        setTimeout(type, isDeleting ? 50 : 90);
+                    }
 
-                <div class="hero-buttons mt-4">
-                    <a href="#chefs" class="btn btn-primary me-2 mb-2">Book Now</a>
-                    <a href="#" class="btn btn-outline-secondary mb-2">See Offers</a>
-                </div>
-            </div>
+                    type();
+                });
+            </script>
 
-            <!-- Hero Image -->
-            <div class="hero-image text-center text-lg-end">
-                <img src="{{ asset('assets/img/hazeer_lady.png') }}" alt="Professional at work" class="img-fluid"
-                    style="max-width:420px;">
+            <p class="mt-3 text-dark">
+                Book certified professionals for all your home service needs. Quality guaranteed, hassle-free
+                experience.
+            </p>
+
+            <div class="hero-buttons mt-4">
+                <a href="#chefs" class="btn btn-primary me-2 mb-2">Book Now</a>
+                <a href="#" class="btn btn-outline-secondary mb-2">See Offers</a>
             </div>
         </div>
-    </section>
+
+        <!-- Hero Image -->
+        <div class="hero-image text-center text-lg-end col-lg-4 ps-lg-4 ">
+            <div class="hero-bg"></div>
+            <img src="{{ asset('assets/img/hazeer_lady.png') }}" alt="Professional at work" class="img-fluid">
+        </div>
+    </div>
+</section>
+
 
 
 
@@ -215,11 +216,11 @@
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card h-100 shadow border-0 rounded-3">
                         <div class="position-relative">
-                            <span class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2">30% OFF</span>
-                            <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1170&q=80"
+                            <span class="badge bg-danger position-absolute top-0 end-0 m-2 px-3 py-2">30% OFF</span>
+                            <img src="{{asset('assets/img/cleaner.png')}}"
                                 class="card-img-top img-fluid rounded-top" alt="Deep cleaning service">
                         </div>
-                        <div class="card-body text-center d-flex flex-column">
+                        <div class="card-body text-center ">
                             <h5 class="card-title fw-bold">Complete Home Deep Cleaning</h5>
                             <p class="card-text mt-2 mb-3">
                                 <span class="fw-bold text-success fs-5">₹1,499</span>
@@ -231,31 +232,31 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card h-100 shadow border-0 rounded-3">
-                        <div class="position-relative">
-                            <span class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2">25% OFF</span>
-                            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=688&q=80"
-                                class="card-img-top img-fluid rounded-top" alt="AC service"
-                                style="height: 250px; object-fit: cover;">
-                        </div>
-                        <div class="card-body text-center d-flex flex-column">
-                            <h5 class="card-title fw-bold">AC General Service Package</h5>
+                 <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                            <div class="position-relative">
+                                <span class="badge bg-danger position-absolute top-0 end-0 m-2 px-3 py-2">30% OFF</span>
+                            </div>
+                        <img src="{{asset('assets/img/plumber.png')}}"
+                            class="card-img-top" alt="Plumbing service">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Bathroom Pipe Leak Repair</h5>
                             <p class="card-text mt-2 mb-3">
-                                <span class="fw-bold text-success fs-5">₹899</span>
-                                <span class="text-muted text-decoration-line-through ms-2">₹1,199</span>
+                                <span class="fw-bold text-success fs-5">₹1,499</span>
+                                <span class="text-muted text-decoration-line-through ms-2">₹2,199</span>
                             </p>
-                            <a href="{{ route('bookings.create') }}" class="btn btn-primary mt-auto">Book Now</a>
+                            <a href="{{ route('bookings.create') }}" class="btn btn-primary w-100">Book Now</a>
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Card 3 -->
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card h-100 shadow border-0 rounded-3">
                         <div class="position-relative">
                             <span class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2">40% OFF</span>
-                            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1170&q=80"
+                            <img src="{{asset('assets/img/salon_team.png')}}"
                                 class="card-img-top img-fluid rounded-top" alt="Salon service">
                         </div>
                         <div class="card-body text-center d-flex flex-column">
@@ -509,19 +510,23 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-                            class="card-img-top" alt="Plumbing service">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Bathroom Pipe Leak Repair</h5>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="fw-bold text-success fs-5">₹499</span>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 shadow border-0 rounded-3">
+                        <div class="position-relative">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2">25% OFF</span>
+                            <img src="{{asset('assets/img/ac_service.png')}}"
+                                class="card-img-top img-fluid rounded-top" alt="AC service"
+                                style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="card-body text-center d-flex flex-column">
+                            <h5 class="card-title fw-bold">AC General Service Package</h5>
+                             <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="fw-bold text-success fs-5">₹599</span>
                                 <span class="text-warning">
-                                    <i class="fas fa-star"></i> 4.7
+                                    <i class="fas fa-star"></i> 4.9
                                 </span>
                             </div>
-                            <a href="{{ route('bookings.create') }}" class="btn btn-primary w-100">Book Now</a>
+                            <a href="{{ route('bookings.create') }}" class="btn btn-primary mt-auto">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -550,7 +555,7 @@
 
     {{-- our top cheif list  --}}
 
-    <div class="container">
+    {{-- <div class="container">
         <div class="header">
             <div class="text-center mb-5">
                 <h2 class="fw-bold">Our Master Chefs</h2>
@@ -578,14 +583,7 @@
 
                             <p class="chef-exp text-white">{{ $chef->experience }}+ years experience</p>
 
-                            {{-- <div class="chef-tags mb-2">
 
-
-                        @foreach (explode(',', $chef->specialties) as $specialty)
-                            <span class="badge bg-light text-dark">{{ trim($specialty) }}</span>
-                        @endforeach
-
-                    </div> --}}
 
                             <div class="chef-actions d-flex justify-content-between">
                                 <a href="{{ route('bookings.create', $chef->id) }}" class="btn btn-primary btn-sm">
@@ -600,7 +598,7 @@
                     </div>
                 </div>
             @endforeach
-                   {{-- see more button --}}
+
         <div class="text-center mt-4 " id="see-more-chefs">
             <a href="#" class="btn btn-lg px-4 mb-4 text-center rounded-pill">
                 See More Chefs <i class="fas fa-arrow-right ms-2"></i>
@@ -609,7 +607,7 @@
         </div>
 
 
-    </div>
+    </div> --}}
 
         <!-- How It Works -->
         <section class="section how-it-works py-5 bg-primary text-white reveal" id="how-it-works">

@@ -4,7 +4,7 @@
     <a href="{{ url('/admin/dashboard') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
     <a href="{{route('admin.users')}}" class="block py-2 px-4 rounded hover:bg-gray-700">Users</a>
     <a href="{{route('admin.services')}}" class="block py-2 px-4 rounded hover:bg-gray-700">Services</a>
-    <a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Reports</a>
+    <a href="{{route('admin.showbooking')}}" class="block py-2 px-4 rounded hover:bg-gray-700">Bookings</a>
     <a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Settings</a>
     <a href="{{route('logout')}}" class="block py-2 px-4 rounded hover:bg-gray-700">Logout</a>
 
@@ -21,7 +21,7 @@
     <a href="{{ url('/admin/dashboard') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
     <a href="{{route('admin.users')}}" class="block py-2 px-4 rounded hover:bg-gray-700">Users</a>
     <a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Orders</a>
-    <a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Reports</a>
+    <a href="{{route('admin.showbooking')}}" class="block py-2 px-4 rounded hover:bg-gray-700">Bookings</a>
     <a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Settings</a>
     <a href="{{route('logout')}}" class="block py-2 px-4 rounded hover:bg-gray-700">Logout</a>
   </nav>
