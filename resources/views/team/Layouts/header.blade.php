@@ -11,7 +11,7 @@
   <!-- Right: Admin Info -->
   <div class="relative">
     <button onclick="toggleProfile()" class="flex items-center space-x-2 focus:outline-none">
-      <span class="hidden sm:inline text-gray-600">Admin</span>
+      <span class="hidden sm:inline text-gray-600">Team</span>
       <img src="https://via.placeholder.com/32" alt="avatar" class="w-8 h-8 rounded-full">
     </button>
 

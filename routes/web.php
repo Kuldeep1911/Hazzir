@@ -34,9 +34,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{id}', [HomeController::class, 'showProfile'])->name('profile.show');
     Route::post('/profile/update', [AuthController::class, 'updateProfile'])->name('profile.update');
 
+
     // ---------- User Dashboard (role 0 only) ----------
     Route::middleware('checkRole:0')->group(function () {
         Route::get('/user/dashboard', [HomeController::class, 'dashboard'])->name('user.dashboard');
+        Route::get('/user/bookings/list', [HomeController::class, 'getBookings'])->name('user.bookings.list');
+
+
     });
 
     // ---------- Admin Dashboard (role 1 only) ----------

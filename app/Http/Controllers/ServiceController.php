@@ -64,10 +64,11 @@ class ServiceController extends Controller
     {
         $user = Auth::user();
 
+
         // सिर्फ़ logged in team member की bookings
         $bookings = Booking::where('team_id', $user->id)->latest()->take(5)->get();
 
-        return view('team.dashboard', compact('bookings'));
+        return view('team.dashboard', compact('bookings', 'user'));
     }
 
     public function services()

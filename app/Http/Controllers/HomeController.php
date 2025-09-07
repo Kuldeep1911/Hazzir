@@ -19,8 +19,21 @@ class HomeController extends Controller
     public function dashboard()
     {
         $user = Auth::user();
+        $data = [
+        'user' => $user,
+        'booking' => DB::table('bookings')
+            ->where('user_id', $user->id)
+            ->get(),
+        'bookings' => DB::table('bookings')
+            ->select(DB::raw('count(*) as count'))
+            ->where('user_id', $user->id)
+            ->groupBy('user_id')
+            ->get(),
+    ];
 
-        return view('user.dashboard', compact('user'));
+
+
+        return view('user.dashboard', $data);
     }
 
     // Login Page
@@ -146,4 +159,7 @@ class HomeController extends Controller
         $user = Auth::user();
         return view('team.dashboard', compact('user'));
     }
+
+
+
 }
