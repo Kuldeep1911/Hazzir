@@ -75,6 +75,8 @@ class ServiceController extends Controller
         $user = Auth::user();
         $services = Booking::where('team_id', $user->id)->get();
 
+
+
         return view('team.services', compact('services'));
     }
 

@@ -44,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
         Route::get('/Admin/Users', [AdminController::class, 'showUsers'])->name('admin.users');
         Route::get('/admin/showbooking', [BookingController::class, 'showBookings'])->name('admin.showbooking');
+        // Route::get('/admin/bookings', [BookingController::class, 'search'])->name('admin.showbooking');
 
         Route::prefix('admin')->group(function () {
             Route::resource('users', App\Http\Controllers\Admin\UserController::class);
@@ -51,6 +52,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('services/create', [ServiceController::class, 'create'])->name('admin.services.create');
             Route::post('services', [ServiceController::class, 'store'])->name('admin.services.store');
             Route::delete('services/{id}', [ServiceController::class, 'destroy'])->name('admin.services.destroy');
+            Route::post('/bookings/{id}/allot-maid', [BookingController::class, 'allotMaid'])->name('bookings.allotMaid');
         });
     });
 
@@ -65,6 +67,7 @@ Route::middleware(['auth'])->group(function () {
 
 // ======================= EXTRA PAGES ============================
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/services', [HomeController::class, 'services'])->name('services');
 Route::get('/offers', [HomeController::class, 'offers'])->name('offers');
 Route::get('/booking', [HomeController::class, 'booking'])->name('booking');

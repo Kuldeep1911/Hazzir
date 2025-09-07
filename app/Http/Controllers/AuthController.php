@@ -140,7 +140,7 @@ class AuthController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('user.dashboard')->with('success', 'Profile updated successfully.');
+        return redirect()->route('team.dashboard')->with('success', 'Profile updated successfully.');
     }
 
     /**

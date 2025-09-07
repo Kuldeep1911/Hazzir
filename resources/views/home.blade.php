@@ -232,7 +232,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                 <div class="col-md-6 col-lg-4">
+                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card h-100 shadow-sm border-0">
                             <div class="position-relative">
                                 <span class="badge bg-danger position-absolute top-0 end-0 m-2 px-3 py-2">30% OFF</span>
@@ -510,7 +510,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="col-12 col-sm-6 col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="card h-100 shadow border-0 rounded-3">
                         <div class="position-relative">
                             <span class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2">25% OFF</span>

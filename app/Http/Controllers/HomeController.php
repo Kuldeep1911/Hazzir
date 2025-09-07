@@ -133,6 +133,11 @@ class HomeController extends Controller
     {
         return view('terms');
     }
+    // Gallery Page
+    public function gallery()
+    {
+        return view('gallery');
+    }
 
 
     // Client Dashboard

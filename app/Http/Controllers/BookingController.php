@@ -12,25 +12,25 @@ use Illuminate\Support\Facades\DB;
 class BookingController extends Controller
 {
     // Show booking form
-public function create()
-{
-    // अगर user login नहीं है
-    if (!Auth::check()) {
-        return redirect()->route('login')->with('error', 'Please login to book.');
+    public function create()
+    {
+        // अगर user login नहीं है
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Please login to book.');
+        }
+
+        $user = Auth::user();
+
+        // सिर्फ़ role = 0 को allow करो
+        if ($user->role != 0) {
+            return redirect()->back()->with('error', 'You are not authorized to book service.');
+        }
+
+        // get services
+        $services = DB::table('services')->get();
+
+        return view('booking', compact('services'));
     }
-
-    $user = Auth::user();
-
-    // सिर्फ़ role = 0 को allow करो
-    if ($user->role != 0) {
-        return redirect()->back()->with('error', 'You are not authorized to book service.');
-    }
-
-    // get services
-    $services = DB::table('services')->get();
-
-    return view('booking', compact('services'));
-}
 
     // Handle booking + generate OTP
     public function store(Request $request)
@@ -77,43 +77,94 @@ public function create()
             ->where('user_id', Auth::id())
             ->firstOrFail();
 
-            $user = User::findOrFail($booking->user_id);
-            $services = Booking::with('service')->get();
+        $user = User::findOrFail($booking->user_id);
+        $services = Booking::with('service')->get();
 
 
-        return view('success', compact('booking','user'));
+        return view('success', compact('booking', 'user'));
     }
 
     // Team side OTP verification
-    public function verify(Request $request, $id)
+public function verify(Request $request, $id)
+{
+    $request->validate([
+        'otp' => 'required|digits:4',
+    ]);
+
+    $booking = Booking::findOrFail($id);
+
+    if ($booking->otp_verified) {
+        return back()->with('info', 'OTP already verified for this booking.');
+    }
+
+    if ($booking->otp !== $request->otp) {
+        return back()->withErrors(['otp' => 'Invalid OTP entered.']);
+    }
+
+    $booking->update([
+        'otp_verified' => true,
+        'otp' => null, // Clear OTP after verification
+        'status' => 'completed',
+    ]);
+
+    return back()->with('success', 'OTP verified successfully. Service completed.');
+}
+
+
+    // Admin: Show all bookings
+    public function showBookings(Request $request)
+    {
+        $query = Booking::query();
+
+        // 🔍 Search by Name / Email / Phone
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('phone', 'like', "%{$search}%")
+                    ->orWhereHas('user', function ($q2) use ($search) {
+                        $q2->where('name', 'like', "%{$search}%")
+                            ->orWhere('email', 'like', "%{$search}%");
+                    });
+            });
+        }
+
+        // 🔍 Filter by Date
+        if ($request->filled('date')) {
+            $query->whereDate('service_date', $request->date);
+        }
+
+        // Get bookings with relations
+        $bookings = $query->with(['user', 'service', 'maid'])
+            ->latest()
+            ->paginate(10); // ✅ use paginate for pagination
+
+        // Fetch maids
+        $maids = DB::table('users')
+            ->where('role', '2')
+            ->get();
+
+        return view('Admin.bookings.index', compact('bookings', 'maids'));
+    }
+
+
+    // Admin: Allot maid to booking
+    public function allotMaid(Request $request, $id)
     {
         $request->validate([
-            'otp' => 'required|digits:4',
+            'maid_id' => 'required|exists:users,id',
         ]);
 
         $booking = Booking::findOrFail($id);
-
-        if ($booking->otp_verified) {
-            return back()->with('info', 'OTP already verified for this booking.');
+        $booking->team_id = $request->maid_id;
+        if ($booking->status === 'pending') {
+            $booking->status = 'confirmed';
         }
+        $booking->save();
 
-        if ($booking->otp !== $request->otp) {
-            return back()->withErrors(['otp' => 'Invalid OTP entered.']);
-        }
 
-        $booking->update([
-            'otp_verified' => true,
-            'otp' => null, // Clear OTP after verification
-            'status' => 'completed',
-        ]);
-
-        return back()->with('success', 'OTP verified successfully. Service completed.');
+        return back()->with('success', 'Maid allotted successfully!');
     }
 
-    // Admin: Show all bookings
-    public function showBookings()
-    {
-        $bookings = Booking::with('user')->latest()->get();
-        return view('Admin.bookings.index', compact('bookings'));
-    }
+
+
 }
