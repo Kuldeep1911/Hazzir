@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Haazir - Premium Home Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#007bff',
+            'primary-dark': '#0069d9',
+            secondary: '#6c757d',
+            accent: '#ff7b00',
+            light: '#f8f9fa',
+            dark: '#343a40',
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+
+    .typewriter-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.2em;
+      background-color: #007bff;
+      margin-left: 2px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .service-card { transition: all 0.3s ease; }
+    .service-card:hover { transform: translateY(-6px) rotate(0.5deg); }
+
+    .feature-item:hover { box-shadow: 0 0 20px rgba(0,123,255,0.15); transform: translateY(-3px); }
+
+    .offer-badge { position: absolute; top: 10px; right: 10px; z-index: 10; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.1);} }
+
+    .testimonial-card { transition: all 0.3s ease; }
+    .testimonial-card:hover { transform: translateY(-3px); }
+  </style>
+</head>
+<body class="font-poppins bg-gray-50">
+
+  <!-- Hero Section -->
+  <section class="py-16 bg-gradient-to-r from-blue-50 to-indigo-50 relative overflow-hidden">
+    <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
+
+      <!-- Hero Content -->
+      <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+        <h1 id="typewriter" class="text-4xl md:text-5xl font-bold text-gray-800 mb-6"></h1>
+        <p class="text-lg text-gray-600 mb-8">
+          Book certified professionals for all your home service needs. Quality guaranteed, hassle-free experience.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="relative max-w-lg mx-auto lg:mx-0 mb-8">
+          <input type="text" placeholder="Search services e.g. AC Repair, Plumbing..."
+            class="w-full px-5 py-4 rounded-full shadow-md border border-gray-200 focus:ring-2 focus:ring-primary focus:outline-none"/>
+          <button class="absolute top-1 right-1 px-6 py-3 bg-primary text-white rounded-full hover:bg-primary-dark transition">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="#services" class="bg-primary hover:bg-primary-dark text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition">Book Now</a>
+          <a href="#offers" class="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-medium py-3 px-8 rounded-full transform hover:-translate-y-1 transition">See Offers</a>
+        </div>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="lg:w-1/2 relative animate-bounce-slow">
+        <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-200 rounded-full opacity-20"></div>
+        <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-orange-200 rounded-full opacity-20"></div>
+        <img src="https://placehold.co/600x500/eef6ff/007bff?text=Professional+Service" alt="Professional at work" class="relative z-10 rounded-2xl shadow-2xl w-full">
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent">Our Service Categories</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Choose from a wide range of professional services for your home</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Example Service Card -->
+        <div class="service-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100 relative">
+          <div class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white mb-6 shadow-lg">
+            <i class="fas fa-cut text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">Salon & Beauty</h3>
+          <p class="text-gray-600">Haircuts, facials & more at home</p>
+          <span class="absolute top-5 left-5 bg-orange-100 text-orange-600 px-3 py-1 text-xs rounded-full">Popular</span>
+        </div>
+
+        <div class="service-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100">
+          <div class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white mb-6 shadow-lg">
+            <i class="fas fa-broom text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">Home Cleaning</h3>
+          <p class="text-gray-600">Deep cleaning, sofa & carpet cleaning</p>
+        </div>
+
+        <div class="service-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100">
+          <div class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white mb-6 shadow-lg">
+            <i class="fas fa-tools text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">AC Repair</h3>
+          <p class="text-gray-600">Installation, servicing & repairs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers -->
+  <section id="offers" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">🔥 Special Offers</h2>
+        <p class="text-lg text-gray-600">Grab our best deals before they're gone!</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition">
+          <div class="relative">
+            <span class="offer-badge bg-red-500 text-white font-bold py-2 px-4 rounded-full">30% OFF</span>
+            <img src="https://placehold.co/600x400/eef6ff/007bff?text=Deep+Cleaning" class="w-full h-56 object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Complete Home Deep Cleaning</h3>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl font-bold text-green-600">₹1,499</span>
+              <span class="text-lg text-gray-400 line-through">₹2,199</span>
+            </div>
+            <button class="w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 rounded-lg">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Carousel -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">What Our Customers Say</h2>
+      </div>
+      <div id="testimonial-slider" class="flex gap-8 overflow-x-auto snap-x snap-mandatory pb-4">
+        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 shadow-lg min-w-[300px] snap-center">
+          <h4 class="font-semibold text-gray-800 mb-2">Rahul Sharma</h4>
+          <p class="text-gray-600">"The AC service was exceptional. My AC is working like new now!"</p>
+        </div>
+        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 shadow-lg min-w-[300px] snap-center">
+          <h4 class="font-semibold text-gray-800 mb-2">Priya Mehta</h4>
+          <p class="text-gray-600">"I've been using Haazir for cleaning. Always excellent quality."</p>
+        </div>
+        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 shadow-lg min-w-[300px] snap-center">
+          <h4 class="font-semibold text-gray-800 mb-2">Amit Patel</h4>
+          <p class="text-gray-600">"The electrician fixed all wiring issues. Highly recommended!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-400">© 2025 Haazir. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Typewriter Effect
+    document.addEventListener("DOMContentLoaded", function() {
+      const texts = [
+        "Premium At-Home Services On Demand",
+        "Trusted Professionals, Hassle-Free Experience",
+        "Quality Service, Right at Your Doorstep",
+        "Book Today, Relax Tomorrow"
+      ];
+      const el = document.getElementById("typewriter");
+      let textIndex = 0, charIndex = 0, isDeleting = false;
+      function type() {
+        const currentText = texts[textIndex];
+        if (isDeleting) {
+          el.innerHTML = currentText.substring(0, charIndex--) + '<span class="typewriter-cursor"></span>';
+        } else {
+          el.innerHTML = currentText.substring(0, charIndex++) + '<span class="typewriter-cursor"></span>';
+        }
+        if (!isDeleting && charIndex === currentText.length) {
+          setTimeout(() => isDeleting = true, 1200);
+        } else if (isDeleting && charIndex < 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+        }
+        setTimeout(type, isDeleting ? 50 : 90);
+      }
+      type();
+    });
+  </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <header class="site-header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg  transparent-header text-dark">
         <div class="container">
 
             <!-- Logo -->
@@ -18,11 +18,11 @@
             <!-- Menu -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('offers') }}">Offers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('gallery')}}">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link " href="{{ route('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link " href="{{ route('services') }}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link " href="{{ route('offers') }}">Offers</a></li>
+                    <li class="nav-item"><a class="nav-link " href="{{route('gallery')}}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link " href="{{ route('about') }}">About Us</a></li>
                 </ul>
 
                 <!-- Auth Buttons -->
@@ -39,5 +39,4 @@
             </div>
         </div>
     </nav>
-
 </header>
