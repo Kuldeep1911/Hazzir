@@ -97,6 +97,11 @@
 
 
 <script>
+    document.addEventListener("scroll", function () {
+    const header = document.querySelector(".transparent-header");
+    header.classList.toggle("scrolled", window.scrollY > 50);
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     // Loader hide after page fully loads
 window.addEventListener("load", function () {

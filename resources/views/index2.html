@@ -1,220 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Haazir - Premium Home Services</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#007bff',
-            'primary-dark': '#0069d9',
-            secondary: '#6c757d',
-            accent: '#ff7b00',
-            light: '#f8f9fa',
-            dark: '#343a40',
-          },
-          fontFamily: {
-            poppins: ['Poppins', 'sans-serif'],
-          },
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haazir - Premium Home Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#007bff',
+                        'primary-dark': '#0069d9',
+                        secondary: '#6c757d',
+                        accent: '#ff7b00',
+                        light: '#f8f9fa',
+                        dark: '#343a40',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
         }
-      }
-    }
-  </script>
-  <style>
-    body { font-family: 'Poppins', sans-serif; }
+    </script>
+    <style type="text/css">
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
 
-    .typewriter-cursor {
-      display: inline-block;
-      width: 2px;
-      height: 1.2em;
-      background-color: #007bff;
-      margin-left: 2px;
-      animation: blink 1s infinite;
-    }
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: #007bff;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
 
-    .service-card { transition: all 0.3s ease; }
-    .service-card:hover { transform: translateY(-6px) rotate(0.5deg); }
+        .service-card {
+            transition: all 0.3s ease;
+        }
 
-    .feature-item:hover { box-shadow: 0 0 20px rgba(0,123,255,0.15); transform: translateY(-3px); }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
 
-    .offer-badge { position: absolute; top: 10px; right: 10px; z-index: 10; animation: pulse 1.5s infinite; }
-    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.1);} }
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
 
-    .testimonial-card { transition: all 0.3s ease; }
-    .testimonial-card:hover { transform: translateY(-3px); }
-  </style>
+        .feature-item:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
 </head>
 <body class="font-poppins bg-gray-50">
-
-  <!-- Hero Section -->
-  <section class="py-16 bg-gradient-to-r from-blue-50 to-indigo-50 relative overflow-hidden">
-    <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
-
-      <!-- Hero Content -->
-      <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
-        <h1 id="typewriter" class="text-4xl md:text-5xl font-bold text-gray-800 mb-6"></h1>
-        <p class="text-lg text-gray-600 mb-8">
-          Book certified professionals for all your home service needs. Quality guaranteed, hassle-free experience.
-        </p>
-
-        <!-- Search Bar -->
-        <div class="relative max-w-lg mx-auto lg:mx-0 mb-8">
-          <input type="text" placeholder="Search services e.g. AC Repair, Plumbing..."
-            class="w-full px-5 py-4 rounded-full shadow-md border border-gray-200 focus:ring-2 focus:ring-primary focus:outline-none"/>
-          <button class="absolute top-1 right-1 px-6 py-3 bg-primary text-white rounded-full hover:bg-primary-dark transition">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <a href="#services" class="bg-primary hover:bg-primary-dark text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition">Book Now</a>
-          <a href="#offers" class="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-medium py-3 px-8 rounded-full transform hover:-translate-y-1 transition">See Offers</a>
-        </div>
-      </div>
-
-      <!-- Hero Image -->
-      <div class="lg:w-1/2 relative animate-bounce-slow">
-        <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-200 rounded-full opacity-20"></div>
-        <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-orange-200 rounded-full opacity-20"></div>
-        <img src="https://placehold.co/600x500/eef6ff/007bff?text=Professional+Service" alt="Professional at work" class="relative z-10 rounded-2xl shadow-2xl w-full">
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent">Our Service Categories</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Choose from a wide range of professional services for your home</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Example Service Card -->
-        <div class="service-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100 relative">
-          <div class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white mb-6 shadow-lg">
-            <i class="fas fa-cut text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Salon & Beauty</h3>
-          <p class="text-gray-600">Haircuts, facials & more at home</p>
-          <span class="absolute top-5 left-5 bg-orange-100 text-orange-600 px-3 py-1 text-xs rounded-full">Popular</span>
-        </div>
-
-        <div class="service-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100">
-          <div class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white mb-6 shadow-lg">
-            <i class="fas fa-broom text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Home Cleaning</h3>
-          <p class="text-gray-600">Deep cleaning, sofa & carpet cleaning</p>
-        </div>
-
-        <div class="service-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100">
-          <div class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white mb-6 shadow-lg">
-            <i class="fas fa-tools text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">AC Repair</h3>
-          <p class="text-gray-600">Installation, servicing & repairs</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Offers -->
-  <section id="offers" class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">🔥 Special Offers</h2>
-        <p class="text-lg text-gray-600">Grab our best deals before they're gone!</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition">
-          <div class="relative">
-            <span class="offer-badge bg-red-500 text-white font-bold py-2 px-4 rounded-full">30% OFF</span>
-            <img src="https://placehold.co/600x400/eef6ff/007bff?text=Deep+Cleaning" class="w-full h-56 object-cover">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800 mb-4">Complete Home Deep Cleaning</h3>
-            <div class="flex items-center justify-between mb-6">
-              <span class="text-2xl font-bold text-green-600">₹1,499</span>
-              <span class="text-lg text-gray-400 line-through">₹2,199</span>
+    <!-- Hero Section -->
+    <section class="py-12 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
+            <!-- Hero Content -->
+            <div class="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 lg:pr-10">
+                <h1 id="typewriter" class="text-4xl md:text-5xl font-bold text-gray-800 mb-6"></h1>
+                <p class="text-lg text-gray-600 mb-8">
+                    Book certified professionals for all your home service needs. Quality guaranteed, hassle-free experience.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#services" class="bg-primary hover:bg-primary-dark text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        Book Now
+                    </a>
+                    <a href="#offers" class="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-medium py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+                        See Offers
+                    </a>
+                </div>
             </div>
-            <button class="w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 rounded-lg">Book Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Testimonials Carousel -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">What Our Customers Say</h2>
-      </div>
-      <div id="testimonial-slider" class="flex gap-8 overflow-x-auto snap-x snap-mandatory pb-4">
-        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 shadow-lg min-w-[300px] snap-center">
-          <h4 class="font-semibold text-gray-800 mb-2">Rahul Sharma</h4>
-          <p class="text-gray-600">"The AC service was exceptional. My AC is working like new now!"</p>
+            <!-- Hero Image -->
+            <div class="lg:w-1/2 relative">
+                <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-200 rounded-full opacity-20"></div>
+                <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-orange-200 rounded-full opacity-20"></div>
+                <img src="https://placehold.co/600x500/eef6ff/007bff?text=Professional+Service" alt="Professional at work" class="relative z-10 rounded-2xl shadow-2xl w-full">
+            </div>
         </div>
-        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 shadow-lg min-w-[300px] snap-center">
-          <h4 class="font-semibold text-gray-800 mb-2">Priya Mehta</h4>
-          <p class="text-gray-600">"I've been using Haazir for cleaning. Always excellent quality."</p>
-        </div>
-        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 shadow-lg min-w-[300px] snap-center">
-          <h4 class="font-semibold text-gray-800 mb-2">Amit Patel</h4>
-          <p class="text-gray-600">"The electrician fixed all wiring issues. Highly recommended!"</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-12">
-    <div class="container mx-auto px-4 text-center">
-      <p class="text-gray-400">© 2025 Haazir. All rights reserved.</p>
-    </div>
-  </footer>
+    <!-- Services Grid -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Service Categories</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Choose from a wide range of professional services for your home</p>
+            </div>
 
-  <script>
-    // Typewriter Effect
-    document.addEventListener("DOMContentLoaded", function() {
-      const texts = [
-        "Premium At-Home Services On Demand",
-        "Trusted Professionals, Hassle-Free Experience",
-        "Quality Service, Right at Your Doorstep",
-        "Book Today, Relax Tomorrow"
-      ];
-      const el = document.getElementById("typewriter");
-      let textIndex = 0, charIndex = 0, isDeleting = false;
-      function type() {
-        const currentText = texts[textIndex];
-        if (isDeleting) {
-          el.innerHTML = currentText.substring(0, charIndex--) + '<span class="typewriter-cursor"></span>';
-        } else {
-          el.innerHTML = currentText.substring(0, charIndex++) + '<span class="typewriter-cursor"></span>';
-        }
-        if (!isDeleting && charIndex === currentText.length) {
-          setTimeout(() => isDeleting = true, 1200);
-        } else if (isDeleting && charIndex < 0) {
-          isDeleting = false;
-          textIndex = (textIndex + 1) % texts.length;
-        }
-        setTimeout(type, isDeleting ? 50 : 90);
-      }
-      type();
-    });
-  </script>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-primary/20">
+                    <div class="text-primary mb-6 text-4xl">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Salon & Beauty</h3>
+                    <p class="text-gray-600">Haircuts, styling, facials, manicures & more at home</p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-primary/20">
+                    <div class="text-primary mb-6 text-4xl">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Home Cleaning</h3>
+                    <p class="text-gray-600">Deep cleaning, regular maid service, sofa & carpet cleaning</p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-primary/20">
+                    <div class="text-primary mb-6 text-4xl">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">AC Repair</h3>
+                    <p class="text-gray-600">Installation, servicing, gas refill & repairs</p>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-primary/20">
+                    <div class="text-primary mb-6 text-4xl">
+                        <i class="fas fa-faucet"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Plumbing</h3>
+                    <p class="text-gray-600">Leak repairs, pipe installation, bathroom fittings</p>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-primary/20">
+                    <div class="text-primary mb-6 text-4xl">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Electrician</h3>
+                    <p class="text-gray-600">Wiring, switchboards, appliance repairs & more</p>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-primary/20">
+                    <div class="text-primary mb-6 text-4xl">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Painting</h3>
+                    <p class="text-gray-600">Interior, exterior, wall texture & waterproofing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-indigo-50 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-72 h-72 bg-blue-200 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-orange-200 rounded-full translate-x-1/3 translate-y-1/3 opacity-20"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Image Section -->
+                <div class="lg:w-1/2">
+                    <img src="https://placehold.co/600x700/eef6ff/007bff?text=Happy+Customer" alt="Happy customer" class="rounded-2xl shadow-2xl w-full">
+                </div>
+
+                <!-- Content Section -->
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                        Why Choose <span class="text-primary">Haazir</span>?
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Experience the convenience of trusted professionals at your doorstep. We ensure <span class="font-semibold text-primary">quality, reliability, and peace of mind</span> so you can focus on what truly matters.
+                    </p>
+
+                    <!-- Features List -->
+                    <div class="space-y-6 mb-10">
+                        <div class="feature-item flex items-center gap-5 p-4 rounded-xl bg-white/50 backdrop-blur-sm">
+                            <div class="feature-icon bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-user-shield text-xl"></i>
+                            </div>
+                            <span class="text-lg font-medium text-gray-800">Professional & Verified Experts</span>
+                        </div>
+
+                        <div class="feature-item flex items-center gap-5 p-4 rounded-xl bg-white/50 backdrop-blur-sm">
+                            <div class="feature-icon bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <span class="text-lg font-medium text-gray-800">On-Time Service Guarantee</span>
+                        </div>
+
+                        <div class="feature-item flex items-center gap-5 p-4 rounded-xl bg-white/50 backdrop-blur-sm">
+                            <div class="feature-icon bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-shield-alt text-xl"></i>
+                            </div>
+                            <span class="text-lg font-medium text-gray-800">Assured Quality & Reliability</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <button class="bg-primary hover:bg-primary-dark text-white font-medium py-4 px-10 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section id="offers" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">🔥 Special Offers</h2>
+                <p class="text-lg text-gray-600">Grab our best deals before they're gone!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Offer Card 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <span class="offer-badge bg-red-500 text-white font-bold py-2 px-4 rounded-full">30% OFF</span>
+                        <img src="https://placehold.co/600x400/eef6ff/007bff?text=Deep+Cleaning" alt="Deep cleaning service" class="w-full h-56 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Complete Home Deep Cleaning</h3>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-2xl font-bold text-green-600">₹1,499</span>
+                            <span class="text-lg text-gray-400 line-through">₹2,199</span>
+                        </div>
+                        <button class="w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 rounded-lg transition-colors duration-300">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Offer Card 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <span class="offer-badge bg-red-500 text-white font-bold py-2 px-4 rounded-full">25% OFF</span>
+                        <img src="https://placehold.co/600x400/eef6ff/007bff?text=Plumbing" alt="Plumbing service" class="w-full h-56 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Bathroom Pipe Leak Repair</h3>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-2xl font-bold text-green-600">₹1,199</span>
+                            <span class="text-lg text-gray-400 line-through">₹1,599</span>
+                        </div>
+                        <button class="w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 rounded-lg transition-colors duration-300">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Offer Card 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <span class="offer-badge bg-red-500 text-white font-bold py-2 px-4 rounded-full">40% OFF</span>
+                        <img src="https://placehold.co/600x400/eef6ff/007bff?text=Salon" alt="Salon service" class="w-full h-56 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Premium Salon Package</h3>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-2xl font-bold text-green-600">₹999</span>
+                            <span class="text-lg text-gray-400 line-through">₹1,699</span>
+                        </div>
+                        <button class="w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 rounded-lg transition-colors duration-300">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">How <span class="text-orange-400">Haazir</span> Works</h2>
+                <p class="text-xl opacity-90">Get your home services in just <span class="font-semibold">3 simple steps</span></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-white text-primary rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">1</div>
+                    <h3 class="text-xl font-semibold mb-4">Choose Your Service</h3>
+                    <p class="opacity-90">Browse our wide range of services and select what you need. Customize options if available.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-white text-primary rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">2</div>
+                    <h3 class="text-xl font-semibold mb-4">Schedule Appointment</h3>
+                    <p class="opacity-90">Pick a date and time that works for you. We even offer same-day services for urgent needs.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-white text-primary rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">3</div>
+                    <h3 class="text-xl font-semibold mb-4">Enjoy Professional Service</h3>
+                    <p class="opacity-90">Our certified professional arrives at your doorstep at the scheduled time to provide a seamless experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Customers Say</h2>
+                <p class="text-lg text-gray-600">Trusted by thousands of happy customers across the city</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/60x60/f3f4f6/6b7280?text=R" alt="Customer" class="w-14 h-14 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800">Rahul Sharma</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The AC service was exceptional. The technician was punctual, professional, and did a thorough job. My AC is working like new now!"</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/60x60/f3f4f6/6b7280?text=P" alt="Customer" class="w-14 h-14 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800">Priya Mehta</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"I've been using Haazir for all my home cleaning needs. Their staff is well-trained and the quality of service is consistently excellent."</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/60x60/f3f4f6/6b7280?text=A" alt="Customer" class="w-14 h-14 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800">Amit Patel</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The electrician arrived on time and fixed all the wiring issues in my home. Professional service at reasonable prices. Highly recommended!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600">Find answers to common questions about our services</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-gray-50 rounded-xl p-6">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold text-gray-800">How do I book a service?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </div>
+                    <p class="mt-4 text-gray-600">You can book a service through our website or mobile app. Simply select the service you need, choose your preferred date and time, and make the payment. You'll receive a confirmation with the professional's details.</p>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-gray-50 rounded-xl p-6">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold text-gray-800">Are your professionals verified?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </div>
+                    <p class="mt-4 text-gray-600 hidden">Yes, all our professionals go through a rigorous verification process including background checks, identity verification, and skill assessments. We only onboard qualified and experienced professionals.</p>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-gray-50 rounded-xl p-6">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold text-gray-800">What if I need to reschedule or cancel?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </div>
+                    <p class="mt-4 text-gray-600 hidden">You can reschedule or cancel your appointment up to 2 hours before the scheduled time without any charges through your account dashboard or by contacting our customer support.</p>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-gray-50 rounded-xl p-6">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold text-gray-800">What safety measures do you have in place?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </div>
+                    <p class="mt-4 text-gray-600 hidden">All our professionals follow strict safety protocols including wearing masks, using sanitizers, and maintaining social distancing. They undergo regular health check-ups and are fully vaccinated.</p>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item bg-gray-50 rounded-xl p-6">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold text-gray-800">How are the prices determined?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </div>
+                    <p class="mt-4 text-gray-600 hidden">Our prices are transparent and based on industry standards, service complexity, and time required. You'll see the final price before booking with no hidden charges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Haazir</h3>
+                    <p class="text-gray-400">Premium at-home services on demand. Quality service, right at your doorstep.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Salon & Beauty</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home Cleaning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">AC Repair</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Plumbing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="text-gray-400">Download our app</p>
+                    <div class="flex space-x-2 mt-2">
+                        <a href="#" class="bg-black text-white py-2 px-4 rounded-lg text-sm">App Store</a>
+                        <a href="#" class="bg-black text-white py-2 px-4 rounded-lg text-sm">Google Play</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 Haazir. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Typewriter effect
+        document.addEventListener("DOMContentLoaded", function() {
+            const texts = [
+                "Premium At-Home Services On Demand",
+                "Trusted Professionals, Hassle-Free Experience",
+                "Quality Service, Right at Your Doorstep",
+                "Book Today, Relax Tomorrow"
+            ];
+
+            const el = document.getElementById("typewriter");
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentText = texts[textIndex];
+
+                if (isDeleting) {
+                    el.innerHTML = currentText.substring(0, charIndex--) + '<span class="typewriter-cursor"></span>';
+                } else {
+                    el.innerHTML = currentText.substring(0, charIndex++) + '<span class="typewriter-cursor"></span>';
+                }
+
+                if (!isDeleting && charIndex === currentText.length) {
+                    setTimeout(() => isDeleting = true, 1200);
+                } else if (isDeleting && charIndex < 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                }
+
+                setTimeout(type, isDeleting ? 50 : 90);
+            }
+
+            type();
+
+            // FAQ toggle functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('div');
+                const answer = item.querySelector('p:not(:first-child)');
+
+                question.addEventListener('click', () => {
+                    answer.classList.toggle('hidden');
+                    const icon = question.querySelector('i');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

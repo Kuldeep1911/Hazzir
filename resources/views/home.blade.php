@@ -8,64 +8,69 @@
 
 <!-- Hero Section -->
 <section class="hero py-5">
-    <div class="container row hero-container d-flex flex-column flex-lg-row align-items-center justify-content-between">
+    <div class="container  row hero-container d-flex flex-column flex-lg-row align-items-center justify-content-between">
 
         <!-- Hero Content -->
         <div class="hero-content text-center text-lg-start mb-4 mb-lg-0 col-lg-8 border-lg-end pe-lg-4">
-            <h1 id="typewriter" class="fw-bold"></h1>
+            <h1 id="typewriter" class="fw-bold">
+            <!-- Typewriter effect commented out. Using default text below. -->
+            Premium At-Home Services On Demand
+            </h1>
 
+            {{--
             <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    const texts = [
-                        "Premium At-Home Services On Demand",
-                        "Trusted Professionals, Hassle-Free Experience",
-                        "Quality Service, Right at Your Doorstep",
-                        "Book Today, Relax Tomorrow"
-                    ];
+            document.addEventListener("DOMContentLoaded", function() {
+                const texts = [
+                "Premium At-Home Services On Demand",
+                "Trusted Professionals, Hassle-Free Experience",
+                "Quality Service, Right at Your Doorstep",
+                "Book Today, Relax Tomorrow"
+                ];
 
-                    const el = document.getElementById("typewriter");
-                    let textIndex = 0;
-                    let charIndex = 0;
-                    let isDeleting = false;
+                const el = document.getElementById("typewriter");
+                let textIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
 
-                    function type() {
-                        const currentText = texts[textIndex];
+                function type() {
+                const currentText = texts[textIndex];
 
-                        if (isDeleting) {
-                            el.textContent = currentText.substring(0, charIndex--);
-                        } else {
-                            el.textContent = currentText.substring(0, charIndex++);
-                        }
+                if (isDeleting) {
+                    el.textContent = currentText.substring(0, charIndex--);
+                } else {
+                    el.textContent = currentText.substring(0, charIndex++);
+                }
 
-                        if (!isDeleting && charIndex === currentText.length) {
-                            setTimeout(() => isDeleting = true, 1200);
-                        } else if (isDeleting && charIndex < 0) {
-                            isDeleting = false;
-                            textIndex = (textIndex + 1) % texts.length;
-                        }
+                if (!isDeleting && charIndex === currentText.length) {
+                    setTimeout(() => isDeleting = true, 1200);
+                } else if (isDeleting && charIndex < 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                }
 
-                        setTimeout(type, isDeleting ? 50 : 90);
-                    }
+                setTimeout(type, isDeleting ? 50 : 90);
+                }
 
-                    type();
-                });
+                type();
+            });
             </script>
+            --}}
 
             <p class="mt-3 text-dark">
-                Book certified professionals for all your home service needs. Quality guaranteed, hassle-free
-                experience.
+            Book certified professionals for all your home service needs. Quality guaranteed, hassle-free
+            experience.
             </p>
 
             <div class="hero-buttons mt-4">
-                <a href="#chefs" class="btn btn-primary me-2 mb-2">Book Now</a>
-                <a href="#" class="btn btn-outline-secondary mb-2">See Offers</a>
+            <a href="#chefs" class="btn btn-primary me-2 mb-2">Book Now</a>
+            <a href="#" class="btn  btn-secondary text-dark mb-2">See Offers</a>
             </div>
         </div>
 
         <!-- Hero Image -->
         <div class="hero-image text-center text-lg-end col-lg-4 ps-lg-4 ">
             <div class="hero-bg"></div>
-            <img src="{{ asset('assets/img/hazeer_lady.png') }}" alt="Professional at work" class="img-fluid">
+            <img src="{{ asset('assets/img/lady_home.png') }}" alt="Professional at work" class="img-fluid">
         </div>
     </div>
 </section>

@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" href="_next/static/media/0484562807a97172-s.p.woff2" as="font" crossorigin=""
+        type="font/woff2" />
+    <link rel="preload" href="_next/static/media/8888a3826f4a3af4-s.p.woff2" as="font" crossorigin=""
+        type="font/woff2" />
+    <link rel="preload" href="_next/static/media/b957ea75a84b6ea7-s.p.woff2" as="font" crossorigin=""
+        type="font/woff2" />
+    <link rel="preload" href="_next/static/media/eafabf029ad39a43-s.p.woff2" as="font" crossorigin=""
+        type="font/woff2" />
+    <link rel="stylesheet" href="_next/static/css/7e2cb380667d294f.css" data-precedence="next" />
+    <link rel="stylesheet" href="_next/static/css/c7c1b629723cd42c.css" data-precedence="next" />
+    <link rel="preload" as="script" fetchPriority="low" href="_next/static/chunks/webpack-3c0a6231c436e403.js" />
+    <script src="_next/static/chunks/fd9d1056-cae6b6d631cb1118.js" async=""></script>
+    <script src="_next/static/chunks/23-dc9bbf79d3efa1b6.js" async=""></script>
+    <script src="_next/static/chunks/main-app-c6e0e7797565f508.js" async=""></script>
+    <script src="_next/static/chunks/30-054aecc22b1c9d13.js" async=""></script>
+    <script src="_next/static/chunks/359-ec3b92ca07e776b8.js" async=""></script>
+    <script src="_next/static/chunks/11-186614551a18b75f.js" async=""></script>
+    <script src="_next/static/chunks/app/page-1dd021ce0bf729c7.js" async=""></script>
+    <script src="_next/static/chunks/724-a9b833068bba1340.js" async=""></script>
+    <script src="_next/static/chunks/app/layout-35d756fde307a0e5.js" async=""></script>
+    <script src="_next/static/chunks/app/not-found-362cec7c7036b396.js" async=""></script>
+    <title>Kitchen</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="30x32" />
+    <meta name="next-size-adjust" />
+    <script src="_next/static/chunks/polyfills-78c92fac7aa8fdd8.js" noModule=""></script>
+</head>
+
+<body class="__className_a94262">
+    <script>!function () { try { var d = document.documentElement, c = d.classList; c.remove('light', 'dark'); var e = localStorage.getItem('theme'); if ('system' === e || (!e && true)) { var t = '(prefers-color-scheme: dark)', m = window.matchMedia(t); if (m.media !== t || m.matches) { d.style.colorScheme = 'dark'; c.add('dark') } else { d.style.colorScheme = 'light'; c.add('light') } } else if (e) { c.add(e || '') } if (e === 'light' || e === 'dark') d.style.colorScheme = e } catch (e) { } }()</script>
+    <header class="fixed top-0 z-40 w-full transition-all duration-300 shadow-none py-8">
+        <div class="lg:py-0 py-2">
+            <div class="container mx-auto lg:max-w-screen-xl md:max-w-screen-md flex items-center justify-between px-4">
+                <a class="flex items-center text-black dark:text-white text-2xl font-semibold gap-4"
+                    href="https://themewagon.github.io/chefs-kitchen-nextjs-free"><img alt="logo" loading="lazy"
+                        width="160" height="50" decoding="async" data-nimg="1"
+                        style="color:transparent;width: 150px;height: 100px;"
+                        src="../../../public/assets/img/haazir_logo.png" />Chef&#x27;s Kitchen.</a>
+                <nav class="hidden lg:flex flex-grow items-center gap-8 justify-center">
+                    <div class="relative"><a
+                            class="text-xl flex font-medium duration-300   text-black/50 dark:text-white/50 hover:text-primary dark:hover:text-primary"
+                            href="#home-section">Home</a></div>
+                    <div class="relative"><a
+                            class="text-xl flex font-medium duration-300   text-black/50 dark:text-white/50 hover:text-primary dark:hover:text-primary"
+                            href="#about-section">About Us</a></div>
+                    <div class="relative"><a
+                            class="text-xl flex font-medium duration-300   text-black/50 dark:text-white/50 hover:text-primary dark:hover:text-primary"
+                            href="#cook-section">Recipe</a></div>
+                    <div class="relative"><a
+                            class="text-xl flex font-medium duration-300   text-black/50 dark:text-white/50 hover:text-primary dark:hover:text-primary"
+                            href="#gallery-section">Gallery</a></div>
+                </nav>
+                <div class="flex items-center gap-4"><a class="text-lg font-medium hover:text-primary"
+                        href="#"><span></span>+1(909) 235-9814</a><a
+                        class="hidden lg:block text-primary bg-primary/15 hover:text-white hover:bg-primary font-medium text-lg py-4 px-8 rounded-full"
+                        href="#">Sign In</a><a
+                        class="hidden lg:block bg-primary text-white hover:bg-primary/15 hover:text-primary font-medium text-lg py-4 px-8 rounded-full "
+                        href="#">Sign Up</a><button class="block lg:hidden p-2 rounded-lg"
+                        aria-label="Toggle mobile menu"><span class="block w-6 h-0.5 bg-white"></span><span
+                            class="block w-6 h-0.5 bg-white mt-1.5"></span><span
+                            class="block w-6 h-0.5 bg-white mt-1.5"></span></button></div>
+            </div>
+            <div
+                class="lg:hidden fixed top-0 right-0 h-full w-full bg-darkmode shadow-lg transform transition-transform duration-300 max-w-xs translate-x-full z-50">
+                <div class="flex items-center justify-between p-4">
+                    <h2 class="text-lg font-bold text-midnight_text dark:text-midnight_text"><a
+                            class="flex items-center text-black dark:text-white text-2xl font-semibold gap-4"
+                            href="https://themewagon.github.io/chefs-kitchen-nextjs-free"><img alt="logo" loading="lazy"
+                                width="160" height="50" decoding="async" data-nimg="1"
+                                style="color:transparent;width:auto;height:auto"
+                                src="images/logo/Logo.svg" />Chef&#x27;s Kitchen.</a></h2><button
+                        class="bg-[url(&#x27;/images/closed.svg&#x27;)] bg-no-repeat bg-contain w-5 h-5 absolute top-0 right-0 mr-8 mt-8 dark:invert"
+                        aria-label="Close menu Modal"></button>
+                </div>
+                <nav class="flex flex-col items-start p-4">
+                    <div class="relative w-full"><a
+                            class="flex items-center justify-between w-full py-2 text-muted focus:outline-none"
+                            href="#home-section">Home</a></div>
+                    <div class="relative w-full"><a
+                            class="flex items-center justify-between w-full py-2 text-muted focus:outline-none"
+                            href="#about-section">About Us</a></div>
+                    <div class="relative w-full"><a
+                            class="flex items-center justify-between w-full py-2 text-muted focus:outline-none"
+                            href="#cook-section">Recipe</a></div>
+                    <div class="relative w-full"><a
+                            class="flex items-center justify-between w-full py-2 text-muted focus:outline-none"
+                            href="#gallery-section">Gallery</a></div>
+                    <div class="mt-4 flex flex-col space-y-4 w-full"><a
+                            class="bg-transparent border border-primary text-primary px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white"
+                            href="#">Sign In</a><a class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+                            href="#">Sign Up</a></div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="home-section" class="bg-gray-50 dark:bg-gray-700">
+            <div class="container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4 pt-20">
+                <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
+                    <div class="col-span-6">
+                        <h1
+                            class="text-4xl lg:text-7xl font-semibold mb-5 text-black dark:text-white md:4px lg:text-start text-center">
+                            Cook anything with the experts</h1>
+                        <p
+                            class="text-black/55 dark:text-white/50 lg:text-lg font-normal mb-10 lg:text-start text-center">
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem<!-- --> <br /> accusantium
+                            doloremque laudantium, totam</p>
+                        <div class="md:flex align-middle justify-center lg:justify-start"><a
+                                class="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-primary hover:text-primary lg:px-14 mr-6 border border-primary hover:bg-transparent"
+                                href="#cook-section">Lets cook</a><a
+                                class="flex border w-full md:w-auto mt-5 md:mt-0 border-primary justify-center rounded-full text-xl font-medium items-center py-5 px-10 text-primary hover:text-white hover:bg-primary"
+                                href="#about-section">Explore now</a></div>
+                    </div>
+                    <div class="col-span-6 flex justify-center relative">
+                        <div class="flex bg-white p-2 gap-5 items-center bottom-10 left-10 rounded-xl absolute"><img
+                                alt="pizza-image" loading="lazy" width="68" height="68" decoding="async" data-nimg="1"
+                                style="color:transparent" src="images/hero/pizza.svg" />
+                            <p class="text-lg font-normal">More than 500+ <br /> recipes.</p>
+                        </div>
+                        <img alt="nothing" loading="lazy" width="1000" height="805" decoding="async" data-nimg="1"
+                            style="color:transparent" src="images/hero/banner-image.png" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container mx-auto lg:max-w-screen-xl md:max-w-screen-md" id="about-section">
+                <div class="text-center mb-14">
+                    <p class="text-primary text-lg font-normal mb-3 tracking-widest uppercase">Features</p>
+                    <h2 class="text-3xl lg:text-5xl font-semibold text-black dark:text-white lg:max-w-60% mx-auto">Get a
+                        many of interesting features.</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-x-5 mt-32">
+                    <div
+                        class="p-8 relative rounded-3xl bg-gradient-to-b from-black/5 to-white dark:from-white/5 dark:to-black">
+                        <div
+                            class="work-img-bg rounded-full flex justify-center absolute -top-[50%] sm:top-[-40%] md:top-[-55%] lg:top-[-45%] left-[0%]">
+                            <img alt="images/Features/featureOne.svg" loading="lazy" width="510" height="10"
+                                decoding="async" data-nimg="1" style="color:transparent"
+                                src="images/Features/featureOne.svg" />
+                        </div>
+                        <h3 class="text-2xl text-black dark:text-white font-semibold text-center mt-16">Menu variations
+                        </h3>
+                        <p class="text-lg font-normal text-black/50 dark:text-white/50 text-center mt-2">Sed ut
+                            perspiciatis unde omnis iste natus error</p>
+                        <div class="flex items-center justify-center "><a
+                                class="text-center text-lg group duration-300 ease-in-out font-medium text-primary mt-2 overflow-hidden flex items-center relative after:absolute after:w-full after:h-px after:bg-primary after:bottom-0 after:right-0 after:translate-x-full hover:after:translate-x-0"
+                                href="https://themewagon.github.io/chefs-kitchen-nextjs-free">Learn
+                                More<span></span></a></div>
+                    </div>
+                    <div
+                        class="p-8 relative rounded-3xl bg-gradient-to-b from-black/5 to-white dark:from-white/5 dark:to-black">
+                        <div
+                            class="work-img-bg rounded-full flex justify-center absolute -top-[50%] sm:top-[-40%] md:top-[-55%] lg:top-[-45%] left-[0%]">
+                            <img alt="images/Features/featureTwo.svg" loading="lazy" width="510" height="10"
+                                decoding="async" data-nimg="1" style="color:transparent"
+                                src="images/Features/featureTwo.svg" />
+                        </div>
+                        <h3 class="text-2xl text-black dark:text-white font-semibold text-center mt-16">Cooking warw
+                        </h3>
+                        <p class="text-lg font-normal text-black/50 dark:text-white/50 text-center mt-2">Sed ut
+                            perspiciatis unde omnis iste natus error</p>
+                        <div class="flex items-center justify-center "><a
+                                class="text-center text-lg group duration-300 ease-in-out font-medium text-primary mt-2 overflow-hidden flex items-center relative after:absolute after:w-full after:h-px after:bg-primary after:bottom-0 after:right-0 after:translate-x-full hover:after:translate-x-0"
+                                href="https://themewagon.github.io/chefs-kitchen-nextjs-free">Learn
+                                More<span></span></a></div>
+                    </div>
+                    <div
+                        class="p-8 relative rounded-3xl bg-gradient-to-b from-black/5 to-white dark:from-white/5 dark:to-black">
+                        <div
+                            class="work-img-bg rounded-full flex justify-center absolute -top-[50%] sm:top-[-40%] md:top-[-55%] lg:top-[-45%] left-[0%]">
+                            <img alt="images/Features/featureThree.svg" loading="lazy" width="510" height="10"
+                                decoding="async" data-nimg="1" style="color:transparent"
+                                src="images/Features/featureThree.svg" />
+                        </div>
+                        <h3 class="text-2xl text-black dark:text-white font-semibold text-center mt-16">Best chef</h3>
+                        <p class="text-lg font-normal text-black/50 dark:text-white/50 text-center mt-2">Sed ut
+                            perspiciatis unde omnis iste natus error</p>
+                        <div class="flex items-center justify-center "><a
+                                class="text-center text-lg group duration-300 ease-in-out font-medium text-primary mt-2 overflow-hidden flex items-center relative after:absolute after:w-full after:h-px after:bg-primary after:bottom-0 after:right-0 after:translate-x-full hover:after:translate-x-0"
+                                href="https://themewagon.github.io/chefs-kitchen-nextjs-free">Learn
+                                More<span></span></a></div>
+                    </div>
+                    <div
+                        class="p-8 relative rounded-3xl bg-gradient-to-b from-black/5 to-white dark:from-white/5 dark:to-black">
+                        <div
+                            class="work-img-bg rounded-full flex justify-center absolute -top-[50%] sm:top-[-40%] md:top-[-55%] lg:top-[-45%] left-[0%]">
+                            <img alt="images/Features/featureFour.svg" loading="lazy" width="510" height="10"
+                                decoding="async" data-nimg="1" style="color:transparent"
+                                src="images/Features/featureFour.svg" />
+                        </div>
+                        <h3 class="text-2xl text-black dark:text-white font-semibold text-center mt-16">Fast food</h3>
+                        <p class="text-lg font-normal text-black/50 dark:text-white/50 text-center mt-2">Sed ut
+                            perspiciatis unde omnis iste natus error</p>
+                        <div class="flex items-center justify-center "><a
+                                class="text-center text-lg group duration-300 ease-in-out font-medium text-primary mt-2 overflow-hidden flex items-center relative after:absolute after:w-full after:h-px after:bg-primary after:bottom-0 after:right-0 after:translate-x-full hover:after:translate-x-0"
+                                href="https://themewagon.github.io/chefs-kitchen-nextjs-free">Learn
+                                More<span></span></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="relative" id="cook-section">
+            <div class="container mx-auto lg:max-w-screen-xl md:max-w-screen-md">
+                <div class="absolute right-0 bottom-[-18%] hidden lg:block"><img alt="burger-image" loading="lazy"
+                        width="463" height="622" decoding="async" data-nimg="1" style="color:transparent"
+                        src="images/cook/burger.png" /></div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 my-16 space-x-5">
+                    <div class="col-span-6 flex justify-start"><img alt="nothing" loading="lazy" width="636"
+                            height="808" decoding="async" data-nimg="1" style="color:transparent"
+                            src="images/cook/cook.png" /></div>
+                    <div class="col-span-6 flex flex-col justify-center">
+                        <p class="text-primary text-lg font-normal mb-3 tracking-widest uppercase text-start">cook with
+                            us</p>
+                        <h2 class="text-3xl lg:text-5xl font-semibold text-black dark:text-white text-start">Cooking
+                            together with the expert.</h2>
+                        <p class="text-black/50 dark:text-white/50 md:text-lg font-normal mb-10 text-start mt-2">Sed ut
+                            perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
+                            vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+                            aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem<!-- --> </p>
+                        <p class="text-black/50 dark:text-white/50 md:text-lg font-normal mb-10 text-start mt-1">Sed ut
+                            perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium....</p><button
+                            class="text-xl font-medium rounded-full text-white py-5 px-6 bg-primary lg:px-10 mr-6 w-fit border border-primary hover:bg-transparent hover:text-primary">Learn
+                            more</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-primary/15">
+            <div class="container mx-auto lg:max-w-screen-xl md:max-w-screen-md">
+                <div class="text-center">
+                    <p class="text-primary text-lg font-normal mb-3 tracking-widest uppercase">EXPERT CHEFS</p>
+                    <h2 class="text-3xl lg:text-5xl font-semibold text-black dark:text-white">Let&#x27;s meet the
+                        expert.</h2>
+                </div>
+                <div class="slick-slider slick-initialized" dir="ltr">
+                    <div class="slick-list">
+                        <div class="slick-track" style="width:500.00000000000006%;left:-100.00000000000001%">
+                            <div data-index="-3" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/girl.png" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Junior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="-2" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/boyone.svg" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Senior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="-1" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/boytwo.svg" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Junior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="0" class="slick-slide slick-active slick-current" tabindex="-1"
+                                aria-hidden="false" style="outline:none;width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/boyone.svg" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Senior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="1" class="slick-slide slick-active" tabindex="-1" aria-hidden="false"
+                                style="outline:none;width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/girl.png" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Junior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="2" class="slick-slide slick-active" tabindex="-1" aria-hidden="false"
+                                style="outline:none;width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/boytwo.svg" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Junior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="3" class="slick-slide" tabindex="-1" aria-hidden="true"
+                                style="outline:none;width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/girl.png" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Junior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="4" class="slick-slide" tabindex="-1" aria-hidden="true"
+                                style="outline:none;width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/boyone.svg" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Senior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="5" class="slick-slide" tabindex="-1" aria-hidden="true"
+                                style="outline:none;width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/boytwo.svg" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Junior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="6" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/boyone.svg" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Senior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="7" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/girl.png" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Junior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="8" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/boytwo.svg" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Junior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="9" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/girl.png" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Junior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="10" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/boyone.svg" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Senior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="11" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width:6.666666666666667%">
+                                <div>
+                                    <div tabindex="-1" style="width:100%;display:inline-block">
+                                        <div class="m-3 py-14 my-10 text-center">
+                                            <div class="relative"><img alt="gaby" loading="lazy" width="362"
+                                                    height="262" decoding="async" data-nimg="1"
+                                                    class="inline-block m-auto" style="color:transparent"
+                                                    src="images/Expert/boytwo.svg" />
+                                                <div class="absolute top-[50%] right-[2%]"><img alt="linkedin"
+                                                        loading="lazy" width="220" height="120" decoding="async"
+                                                        data-nimg="1" style="color:transparent"
+                                                        src="images/Expert/Linkedin.svg" /></div>
+                                            </div>
+                                            <h3 class="text-2xl font-semibold text-lightblack">Shoo Thar Mien</h3>
+                                            <h4 class="text-lg font-normal text-lightblack pt-4 pb-2 opacity-50">Junior
+                                                Chef</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container mx-auto lg:max-w-screen-xl md:max-w-screen-md" id="gallery-section">
+                <div class="text-center">
+                    <p class="text-primary text-lg font-normal mb-3 tracking-widest uppercase">Our Gallery</p>
+                    <h2 class="text-3xl lg:text-5xl font-semibold text-black dark:text-white">Gallery of our cooked
+                        food.</h2>
+                </div>
+                <div class="my-16 px-6">
+                    <div class="flex gap-6">
+                        <div style="width:50%" class="masonry-column">
+                            <div class="overflow-hidden rounded-3xl mb-6 relative group"><img
+                                    alt="Caesar Salad(187 Kcal)" loading="lazy" width="600" height="500"
+                                    decoding="async" data-nimg="1" class="object-cover w-full h-full"
+                                    style="color:transparent" src="images/Gallery/foodone.jpg" />
+                                <div
+                                    class="w-full h-full absolute bg-black/40 top-full group-hover:top-0 duration-500 p-12 flex flex-col items-start gap-8 justify-end">
+                                    <p class="text-white text-2xl"><span class="font-semibold">Name:</span>
+                                        <!-- -->Caesar Salad(187 Kcal)</p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <p class="text-white text-2xl"><span class="font-semibold">Price:</span>
+                                            $<!-- -->35</p><a
+                                            class="text-white rounded-full bg-primary border border-primary py-2 px-6 hover:bg-primary/40 hover:backdrop-blur-sm"
+                                            href="#">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overflow-hidden rounded-3xl mb-6 relative group"><img
+                                    alt="Sauteed mushrooms with pumpkin and sweet pepper(238 kcal)" loading="lazy"
+                                    width="600" height="500" decoding="async" data-nimg="1"
+                                    class="object-cover w-full h-full" style="color:transparent"
+                                    src="images/Gallery/foodthree.jpg" />
+                                <div
+                                    class="w-full h-full absolute bg-black/40 top-full group-hover:top-0 duration-500 p-12 flex flex-col items-start gap-8 justify-end">
+                                    <p class="text-white text-2xl"><span class="font-semibold">Name:</span>
+                                        <!-- -->Sauteed mushrooms with pumpkin and sweet pepper(238 kcal)</p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <p class="text-white text-2xl"><span class="font-semibold">Price:</span>
+                                            $<!-- -->45</p><a
+                                            class="text-white rounded-full bg-primary border border-primary py-2 px-6 hover:bg-primary/40 hover:backdrop-blur-sm"
+                                            href="#">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width:50%" class="masonry-column">
+                            <div class="overflow-hidden rounded-3xl mb-6 relative group"><img
+                                    alt="Christmas salad(118 Kcal)" loading="lazy" width="600" height="500"
+                                    decoding="async" data-nimg="1" class="object-cover w-full h-full"
+                                    style="color:transparent" src="images/Gallery/foodtwo.jpg" />
+                                <div
+                                    class="w-full h-full absolute bg-black/40 top-full group-hover:top-0 duration-500 p-12 flex flex-col items-start gap-8 justify-end">
+                                    <p class="text-white text-2xl"><span class="font-semibold">Name:</span>
+                                        <!-- -->Christmas salad(118 Kcal)</p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <p class="text-white text-2xl"><span class="font-semibold">Price:</span>
+                                            $<!-- -->17</p><a
+                                            class="text-white rounded-full bg-primary border border-primary py-2 px-6 hover:bg-primary/40 hover:backdrop-blur-sm"
+                                            href="#">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overflow-hidden rounded-3xl mb-6 relative group"><img
+                                    alt="BBQ Chicken Feast Pizza(272 kcal)" loading="lazy" width="600" height="500"
+                                    decoding="async" data-nimg="1" class="object-cover w-full h-full"
+                                    style="color:transparent" src="images/Gallery/foodfour.jpg" />
+                                <div
+                                    class="w-full h-full absolute bg-black/40 top-full group-hover:top-0 duration-500 p-12 flex flex-col items-start gap-8 justify-end">
+                                    <p class="text-white text-2xl"><span class="font-semibold">Name:</span> <!-- -->BBQ
+                                        Chicken Feast Pizza(272 kcal)</p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <p class="text-white text-2xl"><span class="font-semibold">Price:</span>
+                                            $<!-- -->27</p><a
+                                            class="text-white rounded-full bg-primary border border-primary py-2 px-6 hover:bg-primary/40 hover:backdrop-blur-sm"
+                                            href="#">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="relative">
+            <div class="container mx-auto lg:max-w-screen-xl md:max-w-screen-md ">
+                <div class="bg-primary rounded-Newsletter grid grid-cols-1 gap-y-10 gap-x-6 md:grid-cols-12 xl:gap-x-8">
+                    <div class="col-span-7">
+                        <div class="m-10 lg:ml-32 lg:mt-20 lg:mb-20">
+                            <p class="text-lg font-normal text-white mb-3 ls-51"> <!-- -->NEWSLETTER<!-- --> </p>
+                            <h2 class="text-3xl md:text-5xl font-semibold text-white mb-8">Subscribe our <br />
+                                newsletter.</h2>
+                            <div>
+                                <div
+                                    class="relative text-white focus-within:text-white flex flex-row-reverse shadow-fi rounded-full">
+                                    <input type="Email address"
+                                        class="py-6 sm:py-8 text-sm w-full text-black dark:text-white rounded-full pl-4 par-87 focus:outline-none focus:text-black"
+                                        placeholder="@ enter your email-address" autoComplete="off" name="q" />
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-2"><button type="submit"
+                                            class="p-2 bg-gray-900 hover:scale-110 duration-300 rounded-full"><span></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-5 relative hidden md:block">
+                        <div><img alt="soup-image" loading="lazy" width="626" height="602" decoding="async"
+                                data-nimg="1" class="-mt-24" style="color:transparent"
+                                src="images/Newsletter/soup.svg" /></div>
+                        <div class="absolute top-[78%]"><img alt="onion-image" loading="lazy" width="300" height="122"
+                                decoding="async" data-nimg="1" style="color:transparent"
+                                src="images/Newsletter/onion.svg" /></div>
+                        <div class="absolute top-[30%] right-[-23%] hidden lg:block"><img alt="lettuce-image"
+                                loading="lazy" width="300" height="122" decoding="async" data-nimg="1"
+                                style="color:transparent" src="images/Newsletter/lec.svg" /></div>
+                        <div class="absolute bottom-[10%] left-[0%]"><img alt="yellow-image" loading="lazy" width="59"
+                                height="59" decoding="async" data-nimg="1" style="color:transparent"
+                                src="images/Newsletter/yellow.svg" /></div>
+                        <div class="absolute bottom-[20%] right-[20%]"><img alt="blue-image" loading="lazy" width="25"
+                                height="25" decoding="async" data-nimg="1" style="color:transparent"
+                                src="images/Newsletter/blue.svg" /></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="pt-16 bg-darkmode">
+        <div class="container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-5 lg:gap-20 md:gap-6 sm:gap-12 gap-6  pb-16">
+                <div class="col-span-2"><a
+                        class="flex items-center text-black dark:text-white text-2xl font-semibold gap-4"
+                        href="https://themewagon.github.io/chefs-kitchen-nextjs-free"><img alt="logo" loading="lazy"
+                            width="160" height="50" decoding="async" data-nimg="1"
+                            style="color:transparent;width:auto;height:auto" src="images/logo/Logo.svg" />Chef&#x27;s
+                        Kitchen.</a>
+                    <p class="text-xs font-medium text-grey dark:text-white/50 mt-5 mb-16 max-w-70%">Open an account in
+                        minutes, get full financial control for much longer.</p>
+                    <div class="flex gap-6 items-center"><a
+                            class="group bg-white hover:bg-primary rounded-full shadow-xl p-3"
+                            href="#"><span></span></a><a
+                            class="group bg-white hover:bg-primary rounded-full shadow-xl p-3"
+                            href="#"><span></span></a><a
+                            class="group bg-white hover:bg-primary rounded-full shadow-xl p-3"
+                            href="#"><span></span></a></div>
+                </div>
+                <div class="">
+                    <h4 class="text-black dark:text-white mb-9 font-semibold text-xl">Company</h4>
+                    <ul>
+                        <li class="pb-5"><a
+                                class="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
+                                href="#">About</a></li>
+                        <li class="pb-5"><a
+                                class="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
+                                href="#">Careers</a></li>
+                        <li class="pb-5"><a
+                                class="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
+                                href="#">Mobile</a></li>
+                        <li class="pb-5"><a
+                                class="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
+                                href="#">Blog</a></li>
+                        <li class="pb-5"><a
+                                class="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
+                                href="#">How we work?</a></li>
+                    </ul>
+                </div>
+                <div class="">
+                    <h4 class="text-black dark:text-white mb-9 font-semibold text-xl">Information</h4>
+                    <ul>
+                        <li class="pb-5"><a
+                                class="text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base"
+                                href="#">Help/FAQ</a></li>
+                        <li class="pb-5"><a
+                                class="text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base"
+                                href="#">Press</a></li>
+                        <li class="pb-5"><a
+                                class="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
+                                href="#">Affiliates</a></li>
+                        <li class="pb-5"><a
+                                class="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
+                                href="#">Hotel owners</a></li>
+                        <li class="pb-5"><a
+                                class="text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base"
+                                href="#">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="">
+                    <h4 class="text-black dark:text-white mb-9 font-semibold text-xl">More</h4>
+                    <ul>
+                        <li class="pb-4"><a
+                                class="text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base"
+                                href="#home-section">Home</a></li>
+                        <li class="pb-4"><a
+                                class="text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base"
+                                href="#about-section">About Us</a></li>
+                        <li class="pb-4"><a
+                                class="text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base"
+                                href="#cook-section">Recipe</a></li>
+                        <li class="pb-4"><a
+                                class="text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base"
+                                href="#gallery-section">Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-grey/15 dark:border-white/15 py-10 flex justify-between items-center">
+                <p class="text-sm text-black/70 dark:text-white/70">@2025 - Chef&#x27;s kitchen. Distributed By <a
+                        target="_blank" class="hover:text-primary" href="https://themewagon.com/">ThemeWagon</a> and
+                    Developed by <a class="hover:text-primary"
+                        href="https://getnextjstemplates.com/">GetNextjsTemplates</a></p>
+                <div class=""><a
+                        class="text-sm text-black/70 dark:text-white/70 px-5 border-r border-grey/15 dark:border-white/15 hover:text-primary dark:hover:text-primary"
+                        href="#">Privacy policy</a><a
+                        class="text-sm text-black/70 dark:text-white/70 px-5 hover:text-primary dark:hover:text-primary"
+                        href="#">Terms &amp; conditions</a></div>
+            </div>
+        </div>
+    </footer>
+    <div class="fixed bottom-8 right-8 z-[999]"></div>
+    <script src="_next/static/chunks/webpack-3c0a6231c436e403.js" async=""></script>
+    <script>(self.__next_f = self.__next_f || []).push([0]); self.__next_f.push([2, null])</script>
+    <script>self.__next_f.push([1, "1:HL[\"/chefs-kitchen-nextjs-free/_next/static/media/0484562807a97172-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n2:HL[\"/chefs-kitchen-nextjs-free/_next/static/media/8888a3826f4a3af4-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n3:HL[\"/chefs-kitchen-nextjs-free/_next/static/media/b957ea75a84b6ea7-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n4:HL[\"/chefs-kitchen-nextjs-free/_next/static/media/eafabf029ad39a43-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n5:HL[\"/chefs-kitchen-nextjs-free/_next/static/css/7e2cb380667d294f.css\",\"style\"]\n6:HL[\"/chefs-kitchen-nextjs-free/_next/static/css/c7c1b629723cd42c.css\",\"style\"]\n"])</script>
+    <script>self.__next_f.push([1, "7:I[5751,[],\"\"]\n9:I[7474,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"359\",\"static/chunks/359-ec3b92ca07e776b8.js\",\"11\",\"static/chunks/11-186614551a18b75f.js\",\"931\",\"static/chunks/app/page-1dd021ce0bf729c7.js\"],\"default\"]\na:I[2726,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"359\",\"static/chunks/359-ec3b92ca07e776b8.js\",\"11\",\"static/chunks/11-186614551a18b75f.js\",\"931\",\"static/chunks/app/page-1dd021ce0bf729c7.js\"],\"default\"]\nb:I[3203,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"359\",\"static/chunks/359-ec3b92ca07e776b8.js\",\"11\",\"static/chunks/11-186614551a18b75f.js\",\"931\",\"static/chunks/app/page-1dd021ce0bf729c7.js\"],\"default\"]\nc:I[8796,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"359\",\"static/chunks/359-ec3b92ca07e776b8.js\",\"11\",\"static/chunks/11-186614551a18b75f.js\",\"931\",\"static/chunks/app/page-1dd021ce0bf729c7.js\"],\"default\"]\nd:I[5081,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"359\",\"static/chunks/359-ec3b92ca07e776b8.js\",\"11\",\"static/chunks/11-186614551a18b75f.js\",\"931\",\"static/chunks/app/page-1dd021ce0bf729c7.js\"],\"default\"]\ne:I[3740,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"359\",\"static/chunks/359-ec3b92ca07e776b8.js\",\"11\",\"static/chunks/11-186614551a18b75f.js\",\"931\",\"static/chunks/app/page-1dd021ce0bf729c7.js\"],\"default\"]\nf:I[9512,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"724\",\"static/chunks/724-a9b833068bba1340.js\",\"359\",\"static/chunks/359-ec3b92ca07e776b8.js\",\"185\",\"static/chunks/app/layout-35d756fde307a0e5.js\"],\"ThemeProvider\"]\n10:I[2863,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"724\",\"static/chunks/724-a9b833068bba1340.js\",\"359\",\"static/chunks/359-ec3b92ca07e776b8.js\",\"185\",\"static/chunks/app/layout-35d756fde307a0e5.js\"],\"default\"]\n11:I[9275,[],\"\"]\n12:I[1343,[],\"\"]\n13:I[8173,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"160\",\"static/chunks/app/not-found-362cec7c7036b396.js\"],\"Image\"]\n17:I[231,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"160\",\"static/chunks/app/not-found-362cec7c7036b396.js\"],\"\"]\n18:I[1359,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"724\",\"static/chunks/724-a9b833068bb"])</script>
+    <script>self.__next_f.push([1, "a1340.js\",\"359\",\"static/chunks/359-ec3b92ca07e776b8.js\",\"185\",\"static/chunks/app/layout-35d756fde307a0e5.js\"],\"Icon\"]\n19:I[7056,[\"30\",\"static/chunks/30-054aecc22b1c9d13.js\",\"724\",\"static/chunks/724-a9b833068bba1340.js\",\"359\",\"static/chunks/359-ec3b92ca07e776b8.js\",\"185\",\"static/chunks/app/layout-35d756fde307a0e5.js\"],\"default\"]\n1b:I[6130,[],\"\"]\n14:T151e,"])</script>
+    <script>self.__next_f.push([1, "M80.4688 65C80.4688 73.724 78.8151 81.1458 75.5078 87.2656C72.2266 93.3854 67.7474 98.0599 62.0703 101.289C56.4193 104.492 50.0651 106.094 43.0078 106.094C35.8984 106.094 29.5182 104.479 23.8672 101.25C18.2161 98.0208 13.75 93.3464 10.4688 87.2266C7.1875 81.1068 5.54688 73.6979 5.54688 65C5.54688 56.276 7.1875 48.8542 10.4688 42.7344C13.75 36.6146 18.2161 31.9531 23.8672 28.75C29.5182 25.5208 35.8984 23.9062 43.0078 23.9062C50.0651 23.9062 56.4193 25.5208 62.0703 28.75C67.7474 31.9531 72.2266 36.6146 75.5078 42.7344C78.8151 48.8542 80.4688 56.276 80.4688 65ZM63.3203 65C63.3203 59.349 62.474 54.5833 60.7812 50.7031C59.1146 46.8229 56.7578 43.8802 53.7109 41.875C50.6641 39.8698 47.0964 38.8672 43.0078 38.8672C38.9193 38.8672 35.3516 39.8698 32.3047 41.875C29.2578 43.8802 26.888 46.8229 25.1953 50.7031C23.5286 54.5833 22.6953 59.349 22.6953 65C22.6953 70.651 23.5286 75.4167 25.1953 79.2969C26.888 83.1771 29.2578 86.1198 32.3047 88.125C35.3516 90.1302 38.9193 91.1328 43.0078 91.1328C47.0964 91.1328 50.6641 90.1302 53.7109 88.125C56.7578 86.1198 59.1146 83.1771 60.7812 79.2969C62.474 75.4167 63.3203 70.651 63.3203 65ZM92.6855 127.5V45H109.092V55.0781H109.834C110.563 53.4635 111.618 51.8229 112.998 50.1562C114.404 48.4635 116.227 47.0573 118.467 45.9375C120.732 44.7917 123.545 44.2188 126.904 44.2188C131.279 44.2188 135.316 45.3646 139.014 47.6563C142.712 49.9219 145.667 53.3464 147.881 57.9297C150.094 62.487 151.201 68.2031 151.201 75.0781C151.201 81.7708 150.12 87.4219 147.959 92.0312C145.824 96.6146 142.907 100.091 139.209 102.461C135.537 104.805 131.423 105.977 126.865 105.977C123.636 105.977 120.889 105.443 118.623 104.375C116.383 103.307 114.548 101.966 113.115 100.352C111.683 98.7109 110.589 97.0573 109.834 95.3906H109.326V127.5H92.6855ZM108.975 75C108.975 78.5677 109.469 81.6797 110.459 84.3359C111.449 86.9922 112.881 89.0625 114.756 90.5469C116.631 92.0052 118.91 92.7344 121.592 92.7344C124.3 92.7344 126.592 91.9922 128.467 90.5078C130.342 88.9974 131.761 86.9141 132.725 84.2578C133.714 81.5755 134.209 78.4896 134.209 75C134.209 71.5365 133.727 68.4896 132.764 65.8594C131.8 63.2292 130.381 61.1719 128.506 59.6875C126.631 58.2031 124.326 57.4609 121.592 57.4609C118.883 57.4609 116.592 58.1771 114.717 59.6094C112.868 61.0417 111.449 63.0729 110.459 65.7031C109.469 68.3333 108.975 71.4323 108.975 75ZM162.295 127.5V45H178.701V55.0781H179.443C180.173 53.4635 181.227 51.8229 182.607 50.1562C184.014 48.4635 185.837 47.0573 188.076 45.9375C190.342 44.7917 193.154 44.2188 196.514 44.2188C200.889 44.2188 204.925 45.3646 208.623 47.6563C212.321 49.9219 215.277 53.3464 217.49 57.9297C219.704 62.487 220.811 68.2031 220.811 75.0781C220.811 81.7708 219.73 87.4219 217.568 92.0312C215.433 96.6146 212.516 100.091 208.818 102.461C205.146 104.805 201.032 105.977 196.475 105.977C193.245 105.977 190.498 105.443 188.232 104.375C185.993 103.307 184.157 101.966 182.725 100.352C181.292 98.7109 180.199 97.0573 179.443 95.3906H178.936V127.5H162.295ZM178.584 75C178.584 78.5677 179.079 81.6797 180.068 84.3359C181.058 86.9922 182.49 89.0625 184.365 90.5469C186.24 92.0052 188.519 92.7344 191.201 92.7344C193.91 92.7344 196.201 91.9922 198.076 90.5078C199.951 88.9974 201.37 86.9141 202.334 84.2578C203.324 81.5755 203.818 78.4896 203.818 75C203.818 71.5365 203.337 68.4896 202.373 65.8594C201.41 63.2292 199.99 61.1719 198.115 59.6875C196.24 58.2031 193.936 57.4609 191.201 57.4609C188.493 57.4609 186.201 58.1771 184.326 59.6094C182.477 61.0417 181.058 63.0729 180.068 65.7031C179.079 68.3333 178.584 71.4323 178.584 75ZM281.826 62.1094L266.592 63.0469C266.331 61.7448 265.771 60.5729 264.912 59.5312C264.053 58.4635 262.92 57.6172 261.514 56.9922C260.133 56.3411 258.48 56.0156 256.553 56.0156C253.975 56.0156 251.8 56.5625 250.029 57.6562C248.258 58.724 247.373 60.1562 247.373 61.9531C247.373 63.3854 247.946 64.5964 249.092 65.5859C250.238 66.5755 252.204 67.3698 254.99 67.9687L265.85 70.1562C271.683 71.3542 276.032 73.2812 278.896 75.9375C281.761 78.5937 283.193 82.0833 283.193 86.4062C283.193 90.3385 282.035 93.7891 279.717 96.7578C277.425 99.7266 274.274 102.044 270.264 103.711C266.279 105.352 261.683 106.172 256.475 106.172C248.532 106.172 242.204 104.518 237.49 101.211C232.803 97.8776 230.055 93.3464 229.248 87.6172L245.615 86.7578C246.11 89.1797 247.308 91.0286 249.209 92.3047C251.11 93.5547 253.545 94.1797 256.514 94.1797C259.43 94.1797 261.774 93.6198 263.545 92.5C265.342 91.3542 266.253 89.8828 266.279 88.0859C266.253 86.5755 265.615 85.3385 264.365 84.375C263.115 83.3854 261.188 82.6302 258.584 82.1094L248.193 80.0391C242.334 78.8672 237.972 76.8359 235.107 73.9453C232.269 71.0547 230.85 67.3698 230.85 62.8906C230.85 59.0365 231.891 55.7161 233.975 52.9297C236.084 50.1432 239.04 47.9948 242.842 46.4844C246.67 44.974 251.149 44.2188 256.279 44.2188C263.857 44.2188 269.821 45.8203 274.17 49.0234C278.545 52.2266 281.097 56.5885 281.826 62.1094ZM313.555 25L312.031 81.0156H297.734L296.172 25H313.555ZM304.883 106.016C302.305 106.016 300.091 105.104 298.242 103.281C296.393 101.432 295.482 99.2187 295.508 96.6406C295.482 94.0885 296.393 91.901 298.242 90.0781C300.091 88.2552 302.305 87.3437 304.883 87.3437C307.357 87.3437 309.531 88.2552 311.406 90.0781C313.281 91.901 314.232 94.0885 314.258 96.6406C314.232 98.3594 313.776 99.9349 312.891 101.367C312.031 102.773 310.898 103.906 309.492 104.766C308.086 105.599 306.549 106.016 304.883 106.016Z"])</script>
+
+    <script>self.__next_f.push([1, "16:T151f,"])</script>
+    <script>self.__next_f.push([1, "M84.4688 67C84.4688 75.724 82.8151 83.1458 79.5078 89.2656C76.2266 95.3854 71.7474 100.06 66.0703 103.289C60.4193 106.492 54.0651 108.094 47.0078 108.094C39.8984 108.094 33.5182 106.479 27.8672 103.25C22.2161 100.021 17.75 95.3464 14.4688 89.2266C11.1875 83.1068 9.54688 75.6979 9.54688 67C9.54688 58.276 11.1875 50.8542 14.4688 44.7344C17.75 38.6146 22.2161 33.9531 27.8672 30.75C33.5182 27.5208 39.8984 25.9062 47.0078 25.9062C54.0651 25.9062 60.4193 27.5208 66.0703 30.75C71.7474 33.9531 76.2266 38.6146 79.5078 44.7344C82.8151 50.8542 84.4688 58.276 84.4688 67ZM67.3203 67C67.3203 61.349 66.474 56.5833 64.7812 52.7031C63.1146 48.8229 60.7578 45.8802 57.7109 43.875C54.6641 41.8698 51.0964 40.8672 47.0078 40.8672C42.9193 40.8672 39.3516 41.8698 36.3047 43.875C33.2578 45.8802 30.888 48.8229 29.1953 52.7031C27.5286 56.5833 26.6953 61.349 26.6953 67C26.6953 72.651 27.5286 77.4167 29.1953 81.2969C30.888 85.1771 33.2578 88.1198 36.3047 90.125C39.3516 92.1302 42.9193 93.1328 47.0078 93.1328C51.0964 93.1328 54.6641 92.1302 57.7109 90.125C60.7578 88.1198 63.1146 85.1771 64.7812 81.2969C66.474 77.4167 67.3203 72.651 67.3203 67ZM96.6855 129.5V47H113.092V57.0781H113.834C114.563 55.4635 115.618 53.8229 116.998 52.1562C118.404 50.4635 120.227 49.0573 122.467 47.9375C124.732 46.7917 127.545 46.2188 130.904 46.2188C135.279 46.2188 139.316 47.3646 143.014 49.6563C146.712 51.9219 149.667 55.3464 151.881 59.9297C154.094 64.487 155.201 70.2031 155.201 77.0781C155.201 83.7708 154.12 89.4219 151.959 94.0312C149.824 98.6146 146.907 102.091 143.209 104.461C139.537 106.805 135.423 107.977 130.865 107.977C127.636 107.977 124.889 107.443 122.623 106.375C120.383 105.307 118.548 103.966 117.115 102.352C115.683 100.711 114.589 99.0573 113.834 97.3906H113.326V129.5H96.6855ZM112.975 77C112.975 80.5677 113.469 83.6797 114.459 86.3359C115.449 88.9922 116.881 91.0625 118.756 92.5469C120.631 94.0052 122.91 94.7344 125.592 94.7344C128.3 94.7344 130.592 93.9922 132.467 92.5078C134.342 90.9974 135.761 88.9141 136.725 86.2578C137.714 83.5755 138.209 80.4896 138.209 77C138.209 73.5365 137.727 70.4896 136.764 67.8594C135.8 65.2292 134.381 63.1719 132.506 61.6875C130.631 60.2031 128.326 59.4609 125.592 59.4609C122.883 59.4609 120.592 60.1771 118.717 61.6094C116.868 63.0417 115.449 65.0729 114.459 67.7031C113.469 70.3333 112.975 73.4323 112.975 77ZM166.295 129.5V47H182.701V57.0781H183.443C184.173 55.4635 185.227 53.8229 186.607 52.1562C188.014 50.4635 189.837 49.0573 192.076 47.9375C194.342 46.7917 197.154 46.2188 200.514 46.2188C204.889 46.2188 208.925 47.3646 212.623 49.6563C216.321 51.9219 219.277 55.3464 221.49 59.9297C223.704 64.487 224.811 70.2031 224.811 77.0781C224.811 83.7708 223.73 89.4219 221.568 94.0312C219.433 98.6146 216.516 102.091 212.818 104.461C209.146 106.805 205.032 107.977 200.475 107.977C197.245 107.977 194.498 107.443 192.232 106.375C189.993 105.307 188.157 103.966 186.725 102.352C185.292 100.711 184.199 99.0573 183.443 97.3906H182.936V129.5H166.295ZM182.584 77C182.584 80.5677 183.079 83.6797 184.068 86.3359C185.058 88.9922 186.49 91.0625 188.365 92.5469C190.24 94.0052 192.519 94.7344 195.201 94.7344C197.91 94.7344 200.201 93.9922 202.076 92.5078C203.951 90.9974 205.37 88.9141 206.334 86.2578C207.324 83.5755 207.818 80.4896 207.818 77C207.818 73.5365 207.337 70.4896 206.373 67.8594C205.41 65.2292 203.99 63.1719 202.115 61.6875C200.24 60.2031 197.936 59.4609 195.201 59.4609C192.493 59.4609 190.201 60.1771 188.326 61.6094C186.477 63.0417 185.058 65.0729 184.068 67.7031C183.079 70.3333 182.584 73.4323 182.584 77ZM285.826 64.1094L270.592 65.0469C270.331 63.7448 269.771 62.5729 268.912 61.5312C268.053 60.4635 266.92 59.6172 265.514 58.9922C264.133 58.3411 262.48 58.0156 260.553 58.0156C257.975 58.0156 255.8 58.5625 254.029 59.6562C252.258 60.724 251.373 62.1562 251.373 63.9531C251.373 65.3854 251.946 66.5964 253.092 67.5859C254.238 68.5755 256.204 69.3698 258.99 69.9687L269.85 72.1562C275.683 73.3542 280.032 75.2812 282.896 77.9375C285.761 80.5937 287.193 84.0833 287.193 88.4062C287.193 92.3385 286.035 95.7891 283.717 98.7578C281.425 101.727 278.274 104.044 274.264 105.711C270.279 107.352 265.683 108.172 260.475 108.172C252.532 108.172 246.204 106.518 241.49 103.211C236.803 99.8776 234.055 95.3464 233.248 89.6172L249.615 88.7578C250.11 91.1797 251.308 93.0286 253.209 94.3047C255.11 95.5547 257.545 96.1797 260.514 96.1797C263.43 96.1797 265.774 95.6198 267.545 94.5C269.342 93.3542 270.253 91.8828 270.279 90.0859C270.253 88.5755 269.615 87.3385 268.365 86.375C267.115 85.3854 265.188 84.6302 262.584 84.1094L252.193 82.0391C246.334 80.8672 241.972 78.8359 239.107 75.9453C236.269 73.0547 234.85 69.3698 234.85 64.8906C234.85 61.0365 235.891 57.7161 237.975 54.9297C240.084 52.1432 243.04 49.9948 246.842 48.4844C250.67 46.974 255.149 46.2188 260.279 46.2188C267.857 46.2188 273.821 47.8203 278.17 51.0234C282.545 54.2266 285.097 58.5885 285.826 64.1094ZM317.555 27L316.031 83.0156H301.734L300.172 27H317.555ZM308.883 108.016C306.305 108.016 304.091 107.104 302.242 105.281C300.393 103.432 299.482 101.219 299.508 98.6406C299.482 96.0885 300.393 93.901 302.242 92.0781C304.091 90.2552 306.305 89.3437 308.883 89.3437C311.357 89.3437 313.531 90.2552 315.406 92.0781C317.281 93.901 318.232 96.0885 318.258 98.6406C318.232 100.359 317.776 101.935 316.891 103.367C316.031 104.773 314.898 105.906 313.492 106.766C312.086 107.599 310.549 108.016 308.883 108.016Z"])</script>
+    <script>self.__next_f.push([1, "1c:[]\n"])</script>
+    <script>self.__next_f.push([1, "0:[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/chefs-kitchen-nextjs-free/_next/static/css/7e2cb380667d294f.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"$L7\",null,{\"buildId\":\"Sswgu4_Jri8z6bfYTBm_c\",\"assetPrefix\":\"/chefs-kitchen-nextjs-free\",\"initialCanonicalUrl\":\"/\",\"initialTree\":[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"__PAGE__\",{},[[\"$L8\",[\"$\",\"main\",null,{\"children\":[[\"$\",\"$L9\",null,{}],[\"$\",\"$La\",null,{}],[\"$\",\"$Lb\",null,{}],[\"$\",\"$Lc\",null,{}],[\"$\",\"$Ld\",null,{}],[\"$\",\"$Le\",null,{}]]}]],null],null]},[[\"$\",\"html\",null,{\"lang\":\"en\",\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"__className_a94262\",\"children\":[\"$\",\"$Lf\",null,{\"attribute\":\"class\",\"enableSystem\":true,\"defaultTheme\":\"system\",\"children\":[[\"$\",\"$L10\",null,{}],[\"$\",\"$L11\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L12\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"section\",null,{\"className\":\"py-40 bg-herosub-bg bg-no-repeat bg-cover lg:mt-40 sm:mt-44 mt-20\",\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto lg:max-w-screen-xl px-4\",\"children\":[\"$\",\"h2\",null,{\"className\":\"text-white md:text-56 text-36 font-medium\",\"children\":\"404\"}]}]}],[\"$\",\"section\",null,{\"className\":\"bg-white pt-8 pb-20\",\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto\",\"children\":[\"$\",\"div\",null,{\"className\":\"-mx-4 flex flex-wrap items-center\",\"children\":[[\"$\",\"div\",null,{\"className\":\"w-full px-4 md:w-5/12 lg:w-6/12\",\"children\":[\"$\",\"div\",null,{\"className\":\"relative mx-auto aspect-[129/138] max-w-[357px] text-center\",\"children\":[\"$\",\"$L13\",null,{\"src\":\"/chefs-kitchen-nextjs-free/images/404.svg\",\"alt\":\"image\",\"width\":0,\"height\":0,\"layout\":\"responsive\",\"quality\":100,\"className\":\"mx-auto max-w-full\"}]}]}],[\"$\",\"div\",null,{\"className\":\"w-full px-4 md:w-7/12 lg:w-6/12 xl:w-5/12\",\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"div\",null,{\"className\":\"mb-8\",\"children\":[\"$\",\"svg\",null,{\"width\":\"327\",\"height\":\"132\",\"viewBox\":\"0 0 327 132\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"children\":[[\"$\",\"mask\",null,{\"id\":\"path-1-outside-1_2014_12631\",\"maskUnits\":\"userSpaceOnUse\",\"x\":\"4\",\"y\":\"22\",\"width\":\"312\",\"height\":\"107\",\"fill\":\"black\",\"children\":[[\"$\",\"rect\",null,{\"fill\":\"white\",\"x\":\"4\",\"y\":\"22\",\"width\":\"312\",\"height\":\"107\"}],[\"$\",\"path\",null,{\"d\":\"$14\"}]]}],[\"$\",\"path\",null,{\"d\":\"$15\",\"fill\":\"#3758F9\",\"mask\":\"url(#path-1-outside-1_2014_12631)\"}],[\"$\",\"path\",null,{\"d\":\"$16\",\"fill\":\"#3758F9\"}]]}]}],[\"$\",\"h3\",null,{\"className\":\"mb-5 text-2xl font-semibold text-dark dark:text-white\",\"children\":\"We Can't Seem to Find The Page You're Looking For.\"}],[\"$\",\"p\",null,{\"className\":\"mb-8 text-base text-body-color dark:text-dark-6\",\"children\":\"Oops! The page you are looking for does not exist. It might have been moved or deleted.\"}],[\"$\",\"$L17\",null,{\"href\":\"/\",\"className\":\"rounded-md px-7 py-3 text-base font-medium text-white transition hover:bg-blue-700 bg-primary\",\"children\":\"Go To Home\"}]]}]}]]}]}]}]],\"notFoundStyles\":[],\"styles\":[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/chefs-kitchen-nextjs-free/_next/static/css/c7c1b629723cd42c.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]]}],[\"$\",\"footer\",null,{\"className\":\"pt-16 bg-darkmode\",\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid grid-cols-1 sm:grid-cols-5 lg:gap-20 md:gap-6 sm:gap-12 gap-6  pb-16\",\"children\":[[\"$\",\"div\",null,{\"className\":\"col-span-2\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"/\",\"className\":\"flex items-center text-black dark:text-white text-2xl font-semibold gap-4\",\"children\":[[\"$\",\"$L13\",null,{\"src\":\"/chefs-kitchen-nextjs-free/images/logo/Logo.svg\",\"alt\":\"logo\",\"width\":160,\"height\":50,\"style\":{\"width\":\"auto\",\"height\":\"auto\"},\"quality\":100}],\"Chef's Kitchen.\"]}],[\"$\",\"p\",null,{\"className\":\"text-xs font-medium text-grey dark:text-white/50 mt-5 mb-16 max-w-70%\",\"children\":\"Open an account in minutes, get full financial control for much longer.\"}],[\"$\",\"div\",null,{\"className\":\"flex gap-6 items-center\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"group bg-white hover:bg-primary rounded-full shadow-xl p-3\",\"children\":[\"$\",\"$L18\",null,{\"icon\":\"fa6-brands:facebook-f\",\"width\":\"16\",\"height\":\"16\",\"className\":\" group-hover:text-white text-black\"}]}],[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"group bg-white hover:bg-primary rounded-full shadow-xl p-3\",\"children\":[\"$\",\"$L18\",null,{\"icon\":\"fa6-brands:instagram\",\"width\":\"16\",\"height\":\"16\",\"className\":\" group-hover:text-white text-black\"}]}],[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"group bg-white hover:bg-primary rounded-full shadow-xl p-3\",\"children\":[\"$\",\"$L18\",null,{\"icon\":\"fa6-brands:x-twitter\",\"width\":\"16\",\"height\":\"16\",\"className\":\" group-hover:text-white text-black\"}]}]]}]]}],[\"$\",\"div\",null,{\"className\":\"\",\"children\":[[\"$\",\"h4\",null,{\"className\":\"text-black dark:text-white mb-9 font-semibold text-xl\",\"children\":\"Company\"}],[\"$\",\"ul\",null,{\"children\":[[\"$\",\"li\",null,{\"className\":\"pb-5\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base\",\"children\":\"About\"}]}],[\"$\",\"li\",null,{\"className\":\"pb-5\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base\",\"children\":\"Careers\"}]}],[\"$\",\"li\",null,{\"className\":\"pb-5\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base\",\"children\":\"Mobile\"}]}],[\"$\",\"li\",null,{\"className\":\"pb-5\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base\",\"children\":\"Blog\"}]}],[\"$\",\"li\",null,{\"className\":\"pb-5\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base\",\"children\":\"How we work?\"}]}]]}]]}],[\"$\",\"div\",null,{\"className\":\"\",\"children\":[[\"$\",\"h4\",null,{\"className\":\"text-black dark:text-white mb-9 font-semibold text-xl\",\"children\":\"Information\"}],[\"$\",\"ul\",null,{\"children\":[[\"$\",\"li\",null,{\"className\":\"pb-5\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base\",\"children\":\"Help/FAQ\"}]}],[\"$\",\"li\",null,{\"className\":\"pb-5\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base\",\"children\":\"Press\"}]}],[\"$\",\"li\",null,{\"className\":\"pb-5\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base\",\"children\":\"Affiliates\"}]}],[\"$\",\"li\",null,{\"className\":\"pb-5\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base\",\"children\":\"Hotel owners\"}]}],[\"$\",\"li\",null,{\"className\":\"pb-5\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary text-base\",\"children\":\"Partners\"}]}]]}]]}],[\"$\",\"div\",null,{\"className\":\"\",\"children\":[[\"$\",\"h4\",null,{\"className\":\"text-black dark:text-white mb-9 font-semibold text-xl\",\"children\":\"More\"}],[\"$\",\"ul\",null,{\"children\":[[\"$\",\"li\",\"0\",{\"className\":\"pb-4\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#home-section\",\"className\":\"text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base\",\"children\":\"Home\"}]}],[\"$\",\"li\",\"1\",{\"className\":\"pb-4\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#about-section\",\"className\":\"text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base\",\"children\":\"About Us\"}]}],[\"$\",\"li\",\"2\",{\"className\":\"pb-4\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#cook-section\",\"className\":\"text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base\",\"children\":\"Recipe\"}]}],[\"$\",\"li\",\"3\",{\"className\":\"pb-4\",\"children\":[\"$\",\"$L17\",null,{\"href\":\"#gallery-section\",\"className\":\"text-black/70 dark:text-white/70 dark:hover:text-primary hover:text-primary text-base\",\"children\":\"Gallery\"}]}]]}]]}]]}],[\"$\",\"div\",null,{\"className\":\"border-t border-grey/15 dark:border-white/15 py-10 flex justify-between items-center\",\"children\":[[\"$\",\"p\",null,{\"className\":\"text-sm text-black/70 dark:text-white/70\",\"children\":[\"@2025 - Chef's kitchen. Distributed By \",[\"$\",\"$L17\",null,{\"href\":\"https://themewagon.com/\",\"target\":\"_blank\",\"className\":\"hover:text-primary\",\"children\":\"ThemeWagon\"}],\" and Developed by \",[\"$\",\"$L17\",null,{\"href\":\"https://getnextjstemplates.com/\",\"className\":\"hover:text-primary\",\"children\":\"GetNextjsTemplates\"}]]}],[\"$\",\"div\",null,{\"className\":\"\",\"children\":[[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-sm text-black/70 dark:text-white/70 px-5 border-r border-grey/15 dark:border-white/15 hover:text-primary dark:hover:text-primary\",\"children\":\"Privacy policy\"}],[\"$\",\"$L17\",null,{\"href\":\"#\",\"className\":\"text-sm text-black/70 dark:text-white/70 px-5 hover:text-primary dark:hover:text-primary\",\"children\":\"Terms \u0026 conditions\"}]]}]]}]]}]}],[\"$\",\"$L19\",null,{}]]}]}]}],null],null],\"couldBeIntercepted\":false,\"initialHead\":[false,\"$L1a\"],\"globalErrorComponent\":\"$1b\",\"missingSlots\":\"$W1c\"}]]\n"])</script>
+    <script>self.__next_f.push([1, "1a:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Kitchen\"}],[\"$\",\"link\",\"3\",{\"rel\":\"icon\",\"href\":\"/chefs-kitchen-nextjs-free/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"30x32\"}],[\"$\",\"meta\",\"4\",{\"name\":\"next-size-adjust\"}]]\n8:null\n"])</script>
+</body>
+<!-- Mirrored from themewagon.github.io/chefs-kitchen-nextjs-free/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Sep 2025 15:56:10 GMT -->
+
+</html>
