@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Booking;
 
 class ApiController extends Controller
 {
@@ -22,10 +23,21 @@ class ApiController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => 0
+            'role' => 0,
+            'confirmation_id' => $this->generateConfirmationId()
         ]);
 
-        return response()->json(['status' => true, 'user' => $user], 201);
+        return response()->json([
+        'status'  => true,
+        'message' => 'Registration successful',
+        'user'    => $user
+    ], 201);
+    }
+
+    //confirmation id prefix
+        public function generateConfirmationId()
+    {
+        return 'HZ' . rand(1000, 9999);
     }
 
     public function loginApi(Request $request)
@@ -78,6 +90,36 @@ class ApiController extends Controller
     public function storeBookingApi()
     {
         return response()->json(['message' => 'Booking stored']);
+    }
+    public function createBooking(Request $request)
+    {
+        // Validate input
+        $request->validate([
+            'user_id'      => 'required|integer|exists:users,id',
+            'name'         => 'required|string|max:255',
+            'mobile'       => 'required|string|max:20',
+            'address'      => 'required|string|max:500',
+            'service_id'   => 'required|integer',
+            'booking_date' => 'required|date',
+        ]);
+
+        // Create booking
+        $booking = Booking::create([
+            'user_id'         => $request->user_id,
+            'name'            => $request->name,
+            'mobile'          => $request->mobile,
+            'address'         => $request->address,
+            'service_id'      => $request->service_id,
+            'notes'           => $request->notes ?? null,
+            'booking_date'    => $request->booking_date,
+            'confirmation_id' => $request->confirmation_id ?? $this->generateConfirmationId(),
+        ]);
+
+        return response()->json([
+            'status'  => true,
+            'message' => 'Booking created successfully',
+            'booking' => $booking
+        ], 201);
     }
 
     public function successBookingApi($id)

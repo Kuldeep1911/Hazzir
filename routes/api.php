@@ -28,7 +28,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // User (role 0)
     Route::get('/user/dashboard', [ApiController::class, 'dashboardApi']);
     Route::get('/user/bookings', [ApiController::class, 'getBookingsApi']);
-    Route::post('/bookings', [ApiController::class, 'storeBookingApi']);
+    Route::post('/bookings', [ApiController::class, 'createBooking']);
     Route::get('/bookings/success/{id}', [ApiController::class, 'successBookingApi']);
     Route::post('/bookings/verify/{id}', [ApiController::class, 'verifyBookingApi']);
 
